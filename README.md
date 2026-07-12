@@ -8,6 +8,8 @@ One real-time, iOS-flavored workspace that unifies a family's entire wealth —
 businesses, cash, markets, property, succession, philanthropy, health and staff —
 behind server-enforced role-based access and a deferential AI *ajudan* (aide).
 
+<img src="public/03-marketing/konglo-open-graph-1200x630.webp" alt="Konglo OS" width="760" />
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-e8c07a.svg)](LICENSE)
 ![Next.js 16](https://img.shields.io/badge/Next.js-16-000000?logo=next.js)
 ![React 19](https://img.shields.io/badge/React-19-149eca?logo=react)
@@ -28,22 +30,21 @@ behind server-enforced role-based access and a deferential AI *ajudan* (aide).
 
 ---
 
-## 📸 Screenshots
+## 🎨 The look
+
+Dark-luxury, iOS-flavored — calm and premium on both desktop and mobile. Try it on
+the [**live demo**](https://konglo.rahmanef.com) (anonymous "Lihat demo" for read-only
+mock data).
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/screenshots/landing.png" alt="Landing" /><br/><sub><b>Landing</b> — cinematic dark-luxury marketing page</sub></td>
-    <td width="50%"><img src="docs/screenshots/dashboard.png" alt="Beranda dashboard" /><br/><sub><b>Beranda</b> — net-worth headline, allocation, today's signals</sub></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="docs/screenshots/data-studio.png" alt="Studio Data" /><br/><sub><b>Studio Data</b> — Notion-style CRUD over every business table</sub></td>
-    <td width="50%"><img src="docs/screenshots/portfolio.png" alt="Portfolio" /><br/><sub><b>Portofolio Bisnis</b> — subsidiary registry & performance</sub></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="docs/screenshots/mobile.png" alt="Mobile shell" /><br/><sub><b>Mobile</b> — native-iOS shell, 5-slot dock, Asisten FAB</sub></td>
-    <td width="50%"><img src="docs/screenshots/login.png" alt="Login" /><br/><sub><b>Login</b> — Password · Anonymous demo · Google OAuth</sub></td>
+    <td width="64%"><img src="public/02-product/konglo-splash-desktop-1920x1080.webp" alt="Konglo OS on desktop" /><br/><sub><b>Desktop</b></sub></td>
+    <td width="36%"><img src="public/02-product/konglo-splash-mobile-1080x1920.webp" alt="Konglo OS on mobile" /><br/><sub><b>Mobile</b> — native-iOS shell, 5-slot dock, Asisten FAB</sub></td>
   </tr>
 </table>
+
+<sub>Renders from the in-repo brand package (<code>public/</code>). Live UI captures
+of each feature screen drop into <code>docs/screenshots/</code>.</sub>
 
 ---
 
