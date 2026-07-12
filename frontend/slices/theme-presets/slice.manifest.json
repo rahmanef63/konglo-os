@@ -1,0 +1,42 @@
+{
+  "$schema": "https://resource.rahmanef.com/slice-manifest-schema.json",
+  "slug": "theme-presets",
+  "version": "0.4.0",
+  "tier": 3,
+  "distribution": {
+    "method": "cli-copy",
+    "command": "npx rr add theme-presets",
+    "consumerPath": "slices/theme-presets"
+  },
+  "files": [
+    "HOST-SETUP.md",
+    "components/SaveSiteDefaultButton.tsx",
+    "components/ThemeColorSync.tsx",
+    "components/ThemePresetProvider.tsx",
+    "components/ThemePresetSwitcher.tsx",
+    "components/ThemeProviders.tsx",
+    "components/mode-tabs.tsx",
+    "index.ts",
+    "lib/tools.ts",
+    "lib/tweakcn.ts",
+    "lib/tweakcn/apply.ts",
+    "lib/tweakcn/cssBuilder.ts",
+    "lib/tweakcn/groups.ts",
+    "lib/tweakcn/registry-data.json",
+    "lib/tweakcn/registry.ts",
+    "lib/tweakcn/tokens.ts",
+    "lib/tweakcn/types.ts",
+    "slice.json"
+  ],
+  "imports": {
+    "shared": [],
+    "external": [
+      "@/components/ui/button",
+      "@/components/ui/popover",
+      "@/lib/utils",
+      "lucide-react",
+      "next-themes",
+      "react"
+    ]
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "brand": "Konglo OS",
+  "format": "WebP",
+  "package_version": "1.0",
+  "notes": [
+    "All image assets in this package are WebP; no PNG or SVG files are included.",
+    "Transparent logo variants were derived from the GPT Image outputs by removing the near-black background.",
+    "The original AI generations remain raster artwork; inspect small text before production use."
+  ],
+  "assets": [
+    {
+      "path": "00-original-generations/konglo-01-primary-horizontal.webp",
+      "width": 2172,
+      "height": 724,
+      "mode": "RGB",
+      "sha256": "900ece28132be105150a5d8c75603dfdc82b94cf2529baef04fe1399e465e993"
+    },
+    {
+      "path": "00-original-generations/konglo-02-secondary-stacked.webp",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "sha256": "812fb9fb217ab2d59bca43e36632e0e2f049b36f51902dbe95e2151b6101871b"
+    },
+    {
+      "path": "00-original-generations/konglo-03-standalone-app-icon.webp",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "sha256": "4c14aed9e7e3c36bbba0a9f59964d4917d7d09520805d91493f396772985eb58"
+    },
+    {
+      "path": "00-original-generations/konglo-04-wordmark.webp",
+      "width": 2172,
+      "height": 724,
+      "mode": "RGB",
+      "sha256": "9e7886e1f52c1f732726d03bd125f5e8288d51abf134b1bee26f72880e071b43"
+    },
+    {
+      "path": "00-original-generations/konglo-05-monochrome-light-sheet.webp",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGB",
+      "sha256": "b308df3a54f51ab4c87a07fb6cd2228efe0d05544dc5f43a52101c93f4edfa2a"
+    },
+    {
+      "path": "00-original-generations/konglo-06-monochrome-dark-sheet.webp",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGB",
+      "sha256": "01b64875236c8561956891c8986aa607e02c44fb0a43fb59a62065c089fc6ab2"
+    },
+    {
+      "path": "00-original-generations/konglo-07-splash-desktop.webp",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "6838b41547881fa75abb7b6b4ce8e466399a26f1cab7cf496f40512c00222234"
+    },
+    {
+      "path": "00-original-generations/konglo-08-wallpaper-desktop.webp",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "092c6c7ebe9d1aa0f0d0fd932c7f38ad8c43686964ff104d67b3cc8dc8a9c89c"
+    },
+    {
+      "path": "00-original-generations/konglo-09-og-cover.webp",
+      "width": 1731,
+      "height": 909,
+      "mode": "RGB",
+      "sha256": "9c9acfbedbdf20d9a22cd4bcfa2ff8e273f7444655a3cac9fa90e84a40dd4734"
+    },
+    {
+      "path": "00-original-generations/konglo-10-brand-board.webp",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGB",
+      "sha256": "1a40da37036bb7584d5b2e7e90cb0daccfcf4ce94f93083b029688c0d75e0a72"
+    },
+    {
+      "path": "01-logo/konglo-logo-primary-horizontal-dark.webp",
+      "width": 2172,
+      "height": 724,
+      "mode": "RGB",
+      "sha256": "03f42f4a029db5e274fa015e469b0c254f605a0858627886f9217dc2436122f6"
+    },
+    {
+      "path": "01-logo/konglo-logo-secondary-stacked-dark.webp",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "sha256": "835d0f22508dfcdfc41535450aa87636cd009d7d800090c3d2266a7f75f30137"
+    },
+    {
+      "path": "01-logo/konglo-wordmark-gold-dark.webp",
+      "width": 2172,
+      "height": 724,
+      "mode": "RGB",
+      "sha256": "2c107ab2a1f39b670570979e42dbb0bbba96d26f178dea31f4b3e1db42269d04"
+    },
+    {
+      "path": "01-logo/konglo-logo-primary-horizontal-transparent.webp",
+      "width": 1276,
+      "height": 366,
+      "mode": "RGBA",
+      "sha256": "e71924fb0af3345ecbfea4c6066b59999828b3b6068c4db158ed19ff8796143d"
+    },
+    {
+      "path": "01-logo/konglo-logo-secondary-stacked-transparent.webp",
+      "width": 703,
+      "height": 591,
+      "mode": "RGBA",
+      "sha256": "d68b69b3118df82e1abb54890f82e412aa17a59b01fcf18c4b04de230944d368"
+    },
+    {
+      "path": "01-logo/konglo-wordmark-gold-transparent.webp",
+      "width": 1117,
+      "height": 289,
+      "mode": "RGBA",
+      "sha256": "8b194341970a82e5e8977defe6381ec596be00d4137e02beab13155e82fddf9f"
+    },
+    {
+      "path": "01-logo/konglo-logomark-shield-transparent.webp",
+      "width": 302,
+      "height": 360,
+      "mode": "RGBA",
+      "sha256": "e8a5fa14d6ea1646ab56d0e30b6a858782c6c7b177032234dedf71b8318671b8"
+    },
+    {
+      "path": "01-logo/konglo-logomark-shield-dark.webp",
+      "width": 1200,
+      "height": 1200,
+      "mode": "RGB",
+      "sha256": "18a91f5ed52390ee4423f2b3e5751fe9eb3bdf9594618b2a827637d40293f26a"
+    },
+    {
+      "path": "01-logo/konglo-logo-monochrome-light-sheet.webp",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGB",
+      "sha256": "b308df3a54f51ab4c87a07fb6cd2228efe0d05544dc5f43a52101c93f4edfa2a"
+    },
+    {
+      "path": "01-logo/konglo-logo-monochrome-dark-sheet.webp",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGB",
+      "sha256": "01b64875236c8561956891c8986aa607e02c44fb0a43fb59a62065c089fc6ab2"
+    },
+    {
+      "path": "02-product/konglo-app-icon-1024.webp",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "sha256": "51587b945cc190f3c3f0485d8267779623ba60521acd52c711e947282cde4c12"
+    },
+    {
+      "path": "02-product/konglo-app-icon-512.webp",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "sha256": "b1bd68fb7c8caf2d6538431fa17be6c96815ef1c085d222ff69a45bba222e1e8"
+    },
+    {
+      "path": "02-product/konglo-favicon-512.webp",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "sha256": "839f97c1153520bee5f777f559f0ce9c509cfcc4dd47b5de028b2caf80c50fbb"
+    },
+    {
+      "path": "02-product/konglo-favicon-256.webp",
+      "width": 256,
+      "height": 256,
+      "mode": "RGB",
+      "sha256": "5a5097b7db06f7f8c7e0386316659b69cc0e57fbd91175945bd487f9ae5486e9"
+    },
+    {
+      "path": "02-product/konglo-favicon-128.webp",
+      "width": 128,
+      "height": 128,
+      "mode": "RGB",
+      "sha256": "36a5310720a0f02ddcf7edb4dd4e14e0b477c983f5cb7c1ecabd894b0fb46fe1"
+    },
+    {
+      "path": "02-product/konglo-favicon-64.webp",
+      "width": 64,
+      "height": 64,
+      "mode": "RGB",
+      "sha256": "e15efc3c87077483de8100dccbc019c986986bcfa8b8d13f5eb976ccd3ee4ab5"
+    },
+    {
+      "path": "02-product/konglo-favicon-32.webp",
+      "width": 32,
+      "height": 32,
+      "mode": "RGB",
+      "sha256": "b9633e5f3ad1d6a01bcfa268463ebeb6cd808080f7b3be38279b08d271d10cff"
+    },
+    {
+      "path": "02-product/konglo-favicon-16.webp",
+      "width": 16,
+      "height": 16,
+      "mode": "RGB",
+      "sha256": "0ab17835fad844c8e7511836166d50653c1438ffa52a00e4d78aa879351e0422"
+    },
+    {
+      "path": "02-product/konglo-splash-desktop-1920x1080.webp",
+      "width": 1920,
+      "height": 1080,
+      "mode": "RGB",
+      "sha256": "f83301b8d56463944791bdf2278f416b758658fec82bf676bb5aa0e24dc19b17"
+    },
+    {
+      "path": "02-product/konglo-splash-mobile-1080x1920.webp",
+      "width": 1080,
+      "height": 1920,
+      "mode": "RGB",
+      "sha256": "e2d3772f7a3090b832070af26ad44d1727f9fdfa1283fc916319d13f0ec4ea88"
+    },
+    {
+      "path": "02-product/konglo-wallpaper-desktop-1920x1080.webp",
+      "width": 1920,
+      "height": 1080,
+      "mode": "RGB",
+      "sha256": "ac5445a6d4846ab7130a4739adbe23ebfaf2fbe2ca84047d4798f7bc3c7e13a0"
+    },
+    {
+      "path": "02-product/konglo-wallpaper-mobile-1080x1920.webp",
+      "width": 1080,
+      "height": 1920,
+      "mode": "RGB",
+      "sha256": "2f8e113cfbb4864d790b664ed279ba32eea904c56c927c72953d241c115a759b"
+    },
+    {
+      "path": "03-marketing/konglo-open-graph-1200x630.webp",
+      "width": 1200,
+      "height": 630,
+      "mode": "RGB",
+      "sha256": "ed2625c3c59d8f953d3220d8187355cbe00135fdb006f5ad11212c142448866d"
+    },
+    {
+      "path": "03-marketing/konglo-social-profile-1080x1080.webp",
+      "width": 1080,
+      "height": 1080,
+      "mode": "RGB",
+      "sha256": "fdc95e957e3148ea3f78e69dfb8bdad4b7c49dc1727e52161f527a52ec56daf0"
+    },
+    {
+      "path": "03-marketing/konglo-social-banner-general-1920x1080.webp",
+      "width": 1920,
+      "height": 1080,
+      "mode": "RGB",
+      "sha256": "be001fb62d0eca85d941b4dcd04cccc07e72edf0b5998ec8b96805ba729aaa5b"
+    },
+    {
+      "path": "03-marketing/konglo-pitch-deck-cover-1920x1080.webp",
+      "width": 1920,
+      "height": 1080,
+      "mode": "RGB",
+      "sha256": "f83301b8d56463944791bdf2278f416b758658fec82bf676bb5aa0e24dc19b17"
+    },
+    {
+      "path": "03-marketing/konglo-linkedin-cover-1584x396.webp",
+      "width": 1584,
+      "height": 396,
+      "mode": "RGB",
+      "sha256": "1e2609bdf9cabc269f2099519aebcf45f201a01aa3cba0eeb3ec9926705eba07"
+    },
+    {
+      "path": "03-marketing/konglo-x-cover-1500x500.webp",
+      "width": 1500,
+      "height": 500,
+      "mode": "RGB",
+      "sha256": "d8cb2f872dcd715d0769d5cd6d303cfcfb06ba0c6cee11fa0e96fd00dcbcc758"
+    },
+    {
+      "path": "03-marketing/konglo-youtube-cover-2560x1440.webp",
+      "width": 2560,
+      "height": 1440,
+      "mode": "RGB",
+      "sha256": "b9c73eabfb812838deb3759eec4c3512d86f96b83a3bfb0c807477e5677eb503"
+    },
+    {
+      "path": "04-guidelines/konglo-brand-board-full.webp",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGB",
+      "sha256": "1a40da37036bb7584d5b2e7e90cb0daccfcf4ce94f93083b029688c0d75e0a72"
+    },
+    {
+      "path": "04-guidelines/konglo-brand-board-web.webp",
+      "width": 1122,
+      "height": 1402,
+      "mode": "RGB",
+      "sha256": "efb3615e993caa043846f448aba0ac8fb6a9c2b75ad2dd18f1dedcd06d39a7c8"
+    },
+    {
+      "path": "preview/konglo-assets-contact-sheet.webp",
+      "width": 1068,
+      "height": 2015,
+      "mode": "RGB",
+      "sha256": "225c5cebe2be29afee288ff95eeb7b98f053536191e39ad10abb5c7e0062a8a4"
+    }
+  ]
+}

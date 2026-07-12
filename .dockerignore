@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+_proto
+*.log
+.env.local
+.env.local.*
+.env*.local
+README.md
+.claude

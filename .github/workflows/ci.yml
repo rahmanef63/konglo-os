@@ -1,0 +1,76 @@
+# CI — manual-trigger ONLY (workflow_dispatch). This is deliberate.
+#
+# This repo runs OFF the GitHub Actions cloud. The real pre-merge gate is the
+# local sc-git pre-push hook (typecheck + lint), and deploys go through the
+# Dokploy webhook — not Actions. Adding `push:` / `pull_request:` triggers here
+# would burn GitHub Actions minutes on every commit for no benefit, so they are
+# intentionally omitted. Run this from the Actions tab only when you explicitly
+# want a clean-room run of the full gate.
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  gate:
+    name: typecheck · lint · test · build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.32.1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm exec tsc --noEmit
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Test (node + convex)
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build
+
+  # Browser-driven Playwright suite, deliberately a SEPARATE job so the main
+  # `gate` never has to install Chromium. Also workflow_dispatch-only (off the
+  # Actions cloud cost model). Run from the Actions tab when you want e2e.
+  e2e:
+    name: e2e (playwright · chromium)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.32.1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Run e2e
+        run: pnpm test:e2e

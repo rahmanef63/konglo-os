@@ -1,0 +1,286 @@
+@import "tailwindcss";
+
+/* KONGLO OS design tokens (ported from prototype ds/colors_and_type.css).
+   SSOT for palette. Slices use Tailwind theme tokens — never raw hex. */
+@theme {
+  --color-gold-ink: #17150f;
+
+  --color-mk-blue: #5b8def;
+  --color-mk-purple: #8b5cf6;
+  --color-mk-cyan: #4bc0c8;
+  --color-mk-orange: #e08d54;
+
+  /* var(--font-fraunces) is injected by next/font/google (see app/layout.tsx),
+     which self-hosts Fraunces and sets this var to the real font-family. Without
+     it the serif silently fell back to Georgia. Keeps web-safe serif fallbacks
+     for the brief swap window / no-JS. */
+  --font-display: var(--font-fraunces), "Playfair Display", Georgia, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui,
+    sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* Semantic tokens (shadcn-style) bridged to Konglo palette.
+   Convention (next-themes / tweakcn standard): :root = LIGHT, .dark = DARK.
+   next-themes (app/providers.tsx, attribute="class") toggles the `dark` class
+   on <html>; the theme-presets slice injects its runtime <style id="tweakcn-vars">
+   using the SAME :root / .dark selectors, so a preset (default "claude") layers
+   on top of this base palette. */
+:root {
+  --background: #fbfaf7;
+  --foreground: #1a1813;
+  --card: #ffffff;
+  --card-foreground: #1a1813;
+  --popover: #ffffff;
+  --popover-foreground: #1a1813;
+  --primary: #cba869;
+  --primary-foreground: #17150f;
+  --secondary: #ffffff;
+  --secondary-foreground: #1a1813;
+  --muted: #f4f2ec;
+  --muted-foreground: #5c574d;
+  --accent: #f4f2ec;
+  --accent-foreground: #1a1813;
+  --destructive: #d9534f;
+  --destructive-foreground: #ffffff;
+  --border: #e5e1d8;
+  --input: #e5e1d8;
+  --ring: #8a6d2e;
+  --app-bg: #f4f2ec;
+  /* Base corner radius. tweakcn presets overwrite this at runtime (theme scope,
+     inherited by .dark), and the radius scale below derives from it — so cards,
+     buttons and inputs re-round per preset. 0.5rem = the prior fixed scale. */
+  --radius: 0.5rem;
+
+  /* WCAG AA on-light accents. Original prototype hex (#cba869 / #3e9d63 /
+     #d9534f) only reach ~2.0–4.0:1 on the light surfaces (#fff / #fbfaf7 /
+     #f4f2ec), failing AA for text. Darkened so every text/numeral usage
+     clears 4.5:1 (normal) and 3.0:1 (large). Decorative fills/borders that
+     reference these via opacity (bg-gold/10, border-gold/50) or chart strokes
+     also pick up the darker light hex — on a light surface that reads with
+     equal-or-better contrast, so no decorative regression. Dark mode (.dark)
+     keeps the prototype hex. */
+  --gold: #846729; /* on #fff 5.31 · #fbfaf7 5.09 · #f4f2ec 4.75 */
+  --mk-green: #2c764a; /* on #fff 5.53 · #fbfaf7 5.30 · #f4f2ec 4.94 */
+  --mk-red: #c0392b; /* on #fff 5.44 · #fbfaf7 5.21 · #f4f2ec 4.86 */
+}
+
+.dark {
+  --background: #14130f;
+  --foreground: #ece9e2;
+  --card: #1c1a15;
+  --card-foreground: #ece9e2;
+  --popover: #1c1a15;
+  --popover-foreground: #ece9e2;
+  --primary: #cba869;
+  --primary-foreground: #17150f;
+  --secondary: #1c1a15;
+  --secondary-foreground: #ece9e2;
+  --muted: #1c1a15;
+  --muted-foreground: #a8a39a;
+  --accent: #1c1a15;
+  --accent-foreground: #ece9e2;
+  --destructive: #d9534f;
+  --destructive-foreground: #ffffff;
+  --border: #2a2720;
+  --input: #2a2720;
+  --ring: #cba869;
+  --app-bg: #14130f;
+
+  /* Palette accents bridged via @theme inline so they re-theme per mode.
+     Dark = original prototype hex (these are also used in decorative
+     fills/borders/charts where the darker light values must NOT apply). */
+  --gold: #cba869;
+  --mk-green: #3e9d63;
+  --mk-red: #d9534f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Radius scale derived from the preset-controlled --radius. @theme inline
+     INLINES the calc, so rounded-sm…3xl resolve var(--radius) at runtime and
+     follow the active preset — the fix for "card containers don't change". Base
+     --radius = 0.5rem (:root) reproduces the prior fixed Tailwind scale exactly,
+     so nothing shifts until a preset supplies its own radius. */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+
+  /* Mode-aware accents: .dark keeps prototype hex, :root (light) uses AA-safe
+     darkened values (see :root / .dark). Bridged here so text-gold /
+     text-[color:var(--color-mk-green)] and color-mix() utilities resolve. */
+  --color-gold: var(--gold);
+  --color-mk-green: var(--mk-green);
+  --color-mk-red: var(--mk-red);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* App-like touch: no grey tap flash on iOS Safari. */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Global keyboard focus ring. The raw OS-chrome controls (nav/topbar/bell/
+   command-palette/period-toggles) are bare <button>s that never
+   went through the shadcn Button (which carries its own focus-visible:ring), so
+   keyboard users got no visible focus indicator. :focus-visible only fires for
+   keyboard/AT focus — pointer clicks stay ring-free. Uses the --ring token (gold)
+   so it re-themes per mode; no raw hex. */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Custom utilities (Tailwind v4 @utility → variant-aware, e.g. sm:) ───── */
+
+/* Ambient gold/obsidian backdrop for marketing + auth surfaces. */
+@utility bg-aurora {
+  background:
+    radial-gradient(60rem 40rem at 75% -10%,
+      color-mix(in oklab, var(--color-gold) 16%, transparent), transparent 70%),
+    radial-gradient(50rem 40rem at 10% 110%,
+      color-mix(in oklab, var(--color-mk-blue) 12%, transparent), transparent 70%),
+    var(--background);
+}
+
+/* Frosted panel for dialog/sheet + landing cards. */
+@utility glass {
+  background: color-mix(in oklab, var(--card) 82%, transparent);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+/* Gold-tinted display gradient for hero headline. */
+@utility text-gradient-gold {
+  background: linear-gradient(120deg,
+    var(--foreground), var(--color-gold) 55%, var(--color-gold-ink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* On dark surfaces (incl. the force-dark landing) the light-tuned gradient above
+   terminates at --color-gold-ink (#17150f) ≈ the obsidian background, so the last
+   ~45% of a headline (the punchline words) fades to invisible. Re-run it warm →
+   gold → warm so every word stays legible on obsidian. */
+.dark .text-gradient-gold {
+  background: linear-gradient(120deg,
+    var(--foreground), var(--color-gold) 60%, color-mix(in oklab, var(--color-gold) 55%, var(--foreground)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Overlay/dialog/sheet/toast entrance motion — gated behind
+   prefers-reduced-motion:no-preference so reduced-motion users get the final
+   state with no transform/opacity animation (vestibular-safety; the overlays
+   still render, they just don't move/fade in). */
+@utility animate-overlay {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: overlay-in 0.18s ease-out;
+  }
+}
+@utility animate-dialog {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: dialog-in 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+@utility animate-sheet {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: sheet-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+/* Landing hero staggered entrance. Per-element animation-delay is set inline;
+   this only supplies the keyframe + the reduced-motion gate (matches the
+   overlay/dialog/sheet pattern above — under reduce the element just renders
+   at its natural, fully-visible state). */
+@utility animate-reveal {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: reveal-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+/* Soft entrance for a whole feature screen (the ScreenHost choke point animates
+   all 13 slices in one place). Gentler than reveal-up: 8px rise, quick settle. */
+@utility animate-screen {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: screen-in 0.34s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+/* Container-level staggered entrance: each DIRECT child reveals in sequence.
+   Add `stagger` to any grid / list / flex wrapper — no per-child JSX. Reduced-
+   motion users get the final, fully-visible state. Delays cap at 12 children;
+   beyond that they share the last delay (fine — long lists rarely all-animate). */
+@utility stagger {
+  @media (prefers-reduced-motion: no-preference) {
+    & > * {
+      animation: reveal-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    & > *:nth-child(1) { animation-delay: 40ms; }
+    & > *:nth-child(2) { animation-delay: 85ms; }
+    & > *:nth-child(3) { animation-delay: 130ms; }
+    & > *:nth-child(4) { animation-delay: 175ms; }
+    & > *:nth-child(5) { animation-delay: 220ms; }
+    & > *:nth-child(6) { animation-delay: 265ms; }
+    & > *:nth-child(7) { animation-delay: 310ms; }
+    & > *:nth-child(8) { animation-delay: 355ms; }
+    & > *:nth-child(9) { animation-delay: 400ms; }
+    & > *:nth-child(10) { animation-delay: 445ms; }
+    & > *:nth-child(11) { animation-delay: 490ms; }
+    & > *:nth-child(n + 12) { animation-delay: 535ms; }
+  }
+}
+
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes sheet-in {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes screen-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}

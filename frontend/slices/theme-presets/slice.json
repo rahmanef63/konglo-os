@@ -1,0 +1,81 @@
+{
+  "$schema": "https://resource.rahmanef.com/slice-schema.json",
+  "slug": "theme-presets",
+  "version": "0.4.0",
+  "category": "ui",
+  "kind": "ui",
+  "title": "Theme Presets \u2014 unified switcher with bundled tweakcn registry",
+  "description": "Runtime color preset swap on top of next-themes. Ships ONE component \u2014 ThemePresetSwitcher (Popover with light/dark/system mode tabs + grouped color preset list + hover preview + Default reset). Provider context (ThemePresetProvider) wraps state so deeply-nested consumers read via useThemePreset(). Registry (~30 curated tweakcn presets after HIDDEN filter) ships inside the slice as registry-data.json \u2014 no consumer public/ setup required, loaded lazily via dynamic import so the ~240KB JSON code-splits into its own chunk.",
+  "namespace": "@/features/theme-presets",
+  "registers": [],
+  "audit": [],
+  "frontend": {
+    "slicePath": "frontend/slices/theme-presets",
+    "configExport": ""
+  },
+  "deps": {
+    "npm": [
+      "next-themes@^0.4.6"
+    ],
+    "shadcn": [
+      "button",
+      "popover"
+    ],
+    "env": [],
+    "peers": []
+  },
+  "previews": [
+    {
+      "component": "ThemePresetSwitcher",
+      "kind": "variants",
+      "axes": [
+        {
+          "prop": "size",
+          "values": [
+            "sm",
+            "mobile"
+          ],
+          "default": "sm",
+          "description": "Trigger sizing \u2014 compact header button vs larger mobile touch target."
+        }
+      ],
+      "seed": "Wrapped in next-themes ThemeProvider + ThemePresetProvider; click the Palette trigger to open the mode tabs + bundled tweakcn preset list."
+    }
+  ],
+  "contract": {
+    "provides": {
+      "tools": [
+        "theme-presets.list_presets",
+        "theme-presets.current",
+        "theme-presets.set_preset",
+        "theme-presets.clear"
+      ],
+      "components": [
+        "ThemePresetSwitcher",
+        "ThemePresetProvider",
+        "ThemeColorSync"
+      ],
+      "utils": [
+        "applyTweakcnPreset",
+        "bootTweakcnPreset",
+        "clearTweakcnPreset",
+        "previewTweakcnPreset",
+        "restoreTweakcnPreset",
+        "getSavedTweakcnPreset",
+        "loadTweakcnRegistry",
+        "findTweakcnPreset",
+        "tweakcnSwatches",
+        "groupTweakcnPresets"
+      ],
+      "hooks": [
+        "useThemePreset"
+      ],
+      "types": [
+        "TweakcnPresetItem",
+        "TweakcnRegistry",
+        "TweakcnPresetMeta",
+        "TweakcnPresetGroup"
+      ]
+    }
+  }
+}
