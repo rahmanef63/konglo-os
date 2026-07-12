@@ -30,21 +30,28 @@ behind server-enforced role-based access and a deferential AI *ajudan* (aide).
 
 ---
 
-## 🎨 The look
+## 📸 Screenshots
 
-Dark-luxury, iOS-flavored — calm and premium on both desktop and mobile. Try it on
-the [**live demo**](https://konglo.rahmanef.com) (anonymous "Lihat demo" for read-only
-mock data).
+Dark-luxury, iOS-flavored. Captured live from the [**demo**](https://konglo.rahmanef.com)
+(sign in as *"Lihat demo langsung"* for read-only mock data — a fictional conglomerate).
 
 <table>
   <tr>
-    <td width="64%"><img src="public/02-product/konglo-splash-desktop-1920x1080.webp" alt="Konglo OS on desktop" /><br/><sub><b>Desktop</b></sub></td>
-    <td width="36%"><img src="public/02-product/konglo-splash-mobile-1080x1920.webp" alt="Konglo OS on mobile" /><br/><sub><b>Mobile</b> — native-iOS shell, 5-slot dock, Asisten FAB</sub></td>
+    <td width="50%"><img src="docs/screenshots/landing.png" alt="Landing" /><br/><sub><b>Landing</b> — cinematic marketing page</sub></td>
+    <td width="50%"><img src="docs/screenshots/dashboard.png" alt="Beranda" /><br/><sub><b>Beranda</b> — AI launcher + today's signals</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/portfolio.png" alt="Portofolio Bisnis" /><br/><sub><b>Portofolio Bisnis</b> — subsidiaries, holding map, live P&L</sub></td>
+    <td width="50%"><img src="docs/screenshots/investasi.png" alt="Investasi Pasar" /><br/><sub><b>Investasi Pasar</b> — performance, allocation, holdings</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/relasi.png" alt="Relasi & Jaringan" /><br/><sub><b>Relasi & Jaringan</b> — VIP contacts, follow-ups, meeting log</sub></td>
+    <td width="50%"><img src="docs/screenshots/login.png" alt="Login" /><br/><sub><b>Login</b> — Google · Password · Anonymous demo</sub></td>
   </tr>
 </table>
 
-<sub>Renders from the in-repo brand package (<code>public/</code>). Live UI captures
-of each feature screen drop into <code>docs/screenshots/</code>.</sub>
+<sub>The shell is fully responsive — on phones it collapses to a native-iOS layout
+(fixed-viewport scroll, 5-slot dock with a center Asisten button).</sub>
 
 ---
 
@@ -251,6 +258,11 @@ pnpm test:convex    # convex-test suite only (queries / mutations / RBAC)
 ```
 
 ---
+
+## 📬 Contact
+
+Questions, a live walkthrough, or an engagement — reach out:
+**[rahmanef63@gmail.com](mailto:rahmanef63@gmail.com)**.
 
 ## 📄 License
 
