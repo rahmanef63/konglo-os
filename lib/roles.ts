@@ -2,6 +2,9 @@
 // Mirrors prototype K.ROLES + menuForRole. Server (convex) and client share this.
 export type Role = "principal" | "cfo" | "staf";
 
+// Human labels for roles (id-ID). SSOT so admin surfaces don't re-declare it.
+export const ROLE_LABEL: Record<Role, string> = { principal: "Principal", cfo: "CFO", staf: "Staf" };
+
 // Feature slugs visible per role. principal = all (empty = no filter).
 export const ROLE_MENU: Record<Role, string[] | "all"> = {
   principal: "all",

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useConvexAuth, useQuery } from "convex/react";
+import { useEffect, useRef, useState } from "react";
+import { useConvexAuth, useMutation, useQuery } from "convex/react";
 import { useAuthActions } from "@convex-dev/auth/react";
 import { useRouter } from "next/navigation";
 import { api } from "@/convex/_generated/api";
@@ -50,6 +50,23 @@ export function OsShell() {
   // Demo users never bootstrap: no role claim, no seed — nothing written to the
   // shared Convex tables for a throwaway anonymous session.
   useOsBootstrap(isAuthenticated && !isDemo);
+
+  // Record coarse locale context (browser time zone + locale) once per shell
+  // mount for REAL users — powers the "where/when" columns in the principal's
+  // access roster. Client-volunteered, NO IP/geo. Fire-and-forget; the mutation
+  // also skips anonymous demo guests server-side. Runs once, after identity loads.
+  const recordLogin = useMutation(api.features.rbac.mutations.recordLogin);
+  const loggedRef = useRef(false);
+  useEffect(() => {
+    if (loggedRef.current || !isAuthenticated || isDemo || me === undefined) return;
+    loggedRef.current = true;
+    try {
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      void recordLogin({ timeZone, locale: navigator.language }).catch(() => {});
+    } catch {
+      /* Intl/navigator unavailable — non-fatal; the roster just lacks the hint. */
+    }
+  }, [isAuthenticated, isDemo, me, recordLogin]);
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) router.replace("/login");

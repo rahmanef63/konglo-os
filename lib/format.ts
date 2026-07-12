@@ -34,3 +34,15 @@ export function formatDateID(ms: number): string {
     year: "numeric",
   });
 }
+
+// "12 Jul 2026, 14.30" — date + 24h time (id-ID). For admin roster timestamps
+// (registered when + at what time).
+export function formatDateTimeID(ms: number): string {
+  return new Date(ms).toLocaleString("id-ID", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}

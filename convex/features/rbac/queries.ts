@@ -43,29 +43,48 @@ export const me = query({
   },
 });
 
-// Admin surface: every user + their role. principal-ONLY (the admin page manages
-// access, incl. the estate-sensitive roles). Bounded take(N) — no bare .collect().
+// Admin surface: every real user + their role, registration, last login/activity,
+// and coarse location. principal-ONLY (the admin page manages access, incl. the
+// estate-sensitive roles). Bounded reads — no bare .collect().
 // A user with no role row (e.g. a Google login not yet granted access) shows
-// role: null so the principal can grant or ignore them.
+// role: null so the principal can grant or ignore them. Anonymous demo guests are
+// excluded (they carry no email/role and would flood the roster); the filter+take
+// is bounded (stops at 200 real accounts).
 export const listUsersWithRoles = query({
   args: {},
   handler: async (ctx) => {
     const me = await requirePrincipal(ctx);
     const now = Date.now();
-    const users = await ctx.db.query("users").take(200);
+    const users = await ctx.db
+      .query("users")
+      .filter((q) => q.neq(q.field("isAnonymous"), true))
+      .take(200);
     return Promise.all(
       users.map(async (u) => {
         const row = await ctx.db
           .query("roles")
           .withIndex("by_user", (q) => q.eq("userId", u._id))
           .first();
-        // Live-session visibility: count this user's non-expired auth sessions
-        // (bounded take — a user never holds many). Lets the principal see who
-        // is currently signed in. authSessions comes from @convex-dev/auth.
+        // Live-session visibility + last login: this user's auth sessions
+        // (bounded take — a user never holds many). Newest session start ≈ last
+        // login; non-expired count = currently signed in. From @convex-dev/auth.
         const sessions = await ctx.db
           .query("authSessions")
           .withIndex("userId", (q) => q.eq("userId", u._id))
           .take(20);
+        // Coarse "where" (browser time zone captured at sign-in) + newest logged
+        // action ("their activity"). Both single bounded reads per user.
+        const meta = await ctx.db
+          .query("userMeta")
+          .withIndex("by_user", (q) => q.eq("userId", u._id))
+          .first();
+        const lastAct = await ctx.db
+          .query("activity")
+          .withIndex("by_user", (q) => q.eq("userId", u._id))
+          .order("desc")
+          .first();
+        const lastLoginAt =
+          sessions.reduce((m, s) => Math.max(m, s._creationTime), 0) || null;
         return {
           userId: u._id,
           email: u.email ?? null,
@@ -74,6 +93,10 @@ export const listUsersWithRoles = query({
           role: row?.role ?? null,
           isSelf: u._id === me,
           activeSessions: sessions.filter((s) => s.expirationTime > now).length,
+          registeredAt: u._creationTime, // when they registered (+ time)
+          lastLoginAt, // ms epoch of newest session start, or null
+          lastActivityAt: lastAct?.at ?? null, // newest logged action, or null
+          timeZone: meta?.timeZone ?? null, // coarse location proxy, or null
         };
       }),
     );

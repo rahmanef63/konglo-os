@@ -126,3 +126,29 @@ export const revokeRole = mutation({
     await logAccess(ctx, callerId, `Cabut akses: ${target?.email ?? "pengguna"}`);
   },
 });
+
+// Record the caller's coarse locale context on sign-in — browser time zone +
+// locale, volunteered by the CLIENT (NO IP, NO geoip: users never send an IP to
+// Convex and the analytics beacon deliberately discards it). The time zone is the
+// closest privacy-preserving proxy for "where" a user signs in, surfaced in the
+// principal-only access roster. Idempotent upsert (one row per user). Demo /
+// anonymous sessions are throwaway → skipped. Called fire-and-forget by the shell.
+export const recordLogin = mutation({
+  args: { timeZone: v.optional(v.string()), locale: v.optional(v.string()) },
+  handler: async (ctx, { timeZone, locale }) => {
+    const userId = await requireUser(ctx);
+    const user = await ctx.db.get(userId);
+    if (user?.isAnonymous) return; // throwaway demo guest — nothing to track
+    const existing = await ctx.db
+      .query("userMeta")
+      .withIndex("by_user", (q) => q.eq("userId", userId))
+      .first();
+    const patch = {
+      timeZone: timeZone ?? existing?.timeZone,
+      locale: locale ?? existing?.locale,
+      lastLoginAt: Date.now(),
+    };
+    if (existing) await ctx.db.patch(existing._id, patch);
+    else await ctx.db.insert("userMeta", { userId, ...patch });
+  },
+});

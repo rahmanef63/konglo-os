@@ -53,6 +53,7 @@ import type * as features_pageviews_mutations from "../features/pageviews/mutati
 import type * as features_pageviews_queries from "../features/pageviews/queries.js";
 import type * as features_property_mutations from "../features/property/mutations.js";
 import type * as features_property_queries from "../features/property/queries.js";
+import type * as features_rbac_insights from "../features/rbac/insights.js";
 import type * as features_rbac_mutations from "../features/rbac/mutations.js";
 import type * as features_rbac_queries from "../features/rbac/queries.js";
 import type * as features_security_mutations from "../features/security/mutations.js";
@@ -115,6 +116,7 @@ declare const fullApi: ApiFromModules<{
   "features/pageviews/queries": typeof features_pageviews_queries;
   "features/property/mutations": typeof features_property_mutations;
   "features/property/queries": typeof features_property_queries;
+  "features/rbac/insights": typeof features_rbac_insights;
   "features/rbac/mutations": typeof features_rbac_mutations;
   "features/rbac/queries": typeof features_rbac_queries;
   "features/security/mutations": typeof features_security_mutations;

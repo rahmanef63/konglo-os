@@ -5,9 +5,7 @@ import { api } from "@/convex/_generated/api";
 import { SectionCard, Skeleton } from "@/frontend/shared";
 import { MENU_BY_SLUG } from "@/frontend/slices/menu";
 import { timeAgoID } from "@/lib/format";
-import type { Role } from "@/lib/roles";
-
-const ROLE_LABEL: Record<Role, string> = { principal: "Principal", cfo: "CFO", staf: "Staf" };
+import { ROLE_LABEL } from "@/lib/roles";
 
 // Data-completeness at a glance — reuses the SAME onboarding.overview query as
 // the beranda SetupGuide (principal sees all domains). No new backend.
