@@ -34,10 +34,12 @@ export interface SimConfig {
 export const DEFAULT_CONFIG: SimConfig = {
   width: 1000,
   height: 700,
-  repulsion: 2600,
-  linkDist: 92,
-  linkStrength: 0.05,
-  gravity: 0.028,
+  // Tuned for readability at rest: strong repulsion + soft sector springs so
+  // the densely cross-linked groups spread instead of collapsing to a blob.
+  repulsion: 4600,
+  linkDist: 110,
+  linkStrength: 0.03,
+  gravity: 0.02,
   damping: 0.82,
 };
 

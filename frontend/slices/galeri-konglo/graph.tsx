@@ -60,7 +60,7 @@ export function KongloGraph({
     if (rafRef.current != null) return;
     const step = () => {
       tick(nodesRef.current, graph.links, DEFAULT_CONFIG, alphaRef.current);
-      alphaRef.current = Math.max(0, alphaRef.current * 0.97);
+      alphaRef.current = Math.max(0, alphaRef.current * 0.985);
       publish();
       if (alphaRef.current > 0.03 || drag.current?.id) {
         rafRef.current = requestAnimationFrame(step);
@@ -81,8 +81,8 @@ export function KongloGraph({
     nodesRef.current = graph.nodes.map((n) => {
       const idx = gi.get(n.groupId) ?? 0;
       const ga = (idx / groups.length) * 2 * Math.PI;
-      const gx = W / 2 + Math.cos(ga) * 240;
-      const gy = H / 2 + Math.sin(ga) * 240;
+      const gx = W / 2 + Math.cos(ga) * 300;
+      const gy = H / 2 + Math.sin(ga) * 300;
       if (n.kind === "group") return { id: n.id, x: gx, y: gy, vx: 0, vy: 0, fx: null, fy: null };
       const a = hashAngle(n.id);
       return { id: n.id, x: gx + Math.cos(a) * 46, y: gy + Math.sin(a) * 46, vx: 0, vy: 0, fx: null, fy: null };
