@@ -17,10 +17,9 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "hq": "Jakarta",
     "summary": "Salim Group adalah salah satu konglomerasi terbesar di Indonesia, berkantor pusat di Jakarta, didirikan oleh Sudono Salim pada 1972 dan kini dipimpin oleh Anthoni Salim. Lini bisnis utamanya mencakup pangan (Indofood/Indomie), ritel (Indomaret), otomotif (Indomobil), serta investasi regional melalui First Pacific yang tercatat di Bursa Hong Kong.",
     "sectors": [
-      "Pangan & minuman",
-      "Ritel",
-      "Otomotif",
-      "Agribisnis",
+      "Konsumen & pangan",
+      "Ritel & perdagangan",
+      "Manufaktur & otomotif",
       "Telekomunikasi",
       "Energi & pertambangan"
     ],
@@ -119,10 +118,10 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "summary": "Djarum Group adalah grup konglomerasi keluarga Hartono yang berawal dari produsen rokok kretek PT Djarum, didirikan Oei Wie Gwan di Kudus, Jawa Tengah, pada 1951. Grup ini kemudian berdiversifikasi ke perbankan (BCA), elektronik (Polytron), e-commerce (Blibli), infrastruktur menara telekomunikasi, serta properti.",
     "sectors": [
       "Rokok kretek",
-      "Perbankan",
-      "Elektronik & kendaraan listrik",
-      "E-commerce",
-      "Infrastruktur telekomunikasi",
+      "Perbankan & keuangan",
+      "Manufaktur & otomotif",
+      "Ritel & perdagangan",
+      "Telekomunikasi",
       "Properti"
     ],
     "people": [
@@ -228,12 +227,12 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "hq": "Jakarta",
     "summary": "Sinar Mas adalah salah satu grup konglomerasi terbesar di Indonesia, didirikan oleh Eka Tjipta Widjaja pada 1938 dan kini dikelola generasi kedua dan ketiga keluarga Widjaja. Bisnisnya mencakup pulp & kertas (Asia Pulp & Paper), properti (Sinar Mas Land), agribisnis, jasa keuangan, telekomunikasi, serta energi dan infrastruktur.",
     "sectors": [
-      "Pulp & Kertas",
+      "Pulp & kertas",
       "Properti",
-      "Agribisnis & Pangan",
-      "Jasa Keuangan",
+      "Konsumen & pangan",
+      "Perbankan & keuangan",
       "Telekomunikasi",
-      "Energi & Infrastruktur"
+      "Energi & pertambangan"
     ],
     "people": [
       {
@@ -340,10 +339,7 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "hq": "Jakarta",
     "summary": "Grup usaha yang didirikan Prajogo Pangestu di Jakarta pada 1979 sebagai perusahaan pengolahan kayu, dan kini berfokus pada petrokimia serta energi melalui holding tercatat PT Barito Pacific Tbk (BRPT). Entitas tercatat utamanya meliputi Chandra Asri Pacific (TPIA), Barito Renewables Energy (BREN), dan Petrindo Jaya Kreasi (CUAN).",
     "sectors": [
-      "Petrokimia",
-      "Energi terbarukan (panas bumi)",
-      "Pertambangan batu bara",
-      "Energi & infrastruktur"
+      "Energi & pertambangan"
     ],
     "people": [
       {
@@ -429,9 +425,9 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "hq": "Jakarta",
     "summary": "Konglomerasi yang didirikan Chairul Tanjung di Jakarta pada 1987 dengan nama Para Group dan menyandang nama CT Corp sejak 2011. Lini usahanya mencakup jasa keuangan (Bank Mega, Allo Bank), media dan hiburan (Trans Media), ritel (Transmart), serta properti.",
     "sectors": [
-      "Jasa keuangan",
+      "Perbankan & keuangan",
       "Media & hiburan",
-      "Ritel",
+      "Ritel & perdagangan",
       "Properti"
     ],
     "people": [
@@ -528,11 +524,11 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "summary": "Lippo Group adalah konglomerat multinasional Indonesia yang didirikan Mochtar Riady dan berkantor pusat di Jakarta, dengan bisnis inti di properti, ritel, layanan kesehatan, pendidikan, media, dan jasa keuangan. Perusahaan kunci grup ini antara lain Lippo Karawaci (LPKR), Siloam International Hospitals (SILO), dan Matahari Department Store (LPPF).",
     "sectors": [
       "Properti",
-      "Ritel",
+      "Ritel & perdagangan",
       "Kesehatan",
       "Pendidikan",
-      "Media & Telekomunikasi",
-      "Jasa Keuangan"
+      "Telekomunikasi",
+      "Perbankan & keuangan"
     ],
     "people": [
       {
@@ -635,12 +631,11 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "hq": "Jakarta",
     "summary": "Grup Bakrie adalah salah satu konglomerasi tertua di Indonesia, dirintis Achmad Bakrie pada 1942 sebagai perusahaan dagang di Telukbetung, Lampung, dan kini berkantor pusat di Jakarta. Melalui induk usaha tercatat PT Bakrie & Brothers Tbk (BNBR), kelompok usaha keluarga Bakrie berinvestasi di infrastruktur, pertambangan batu bara, minyak dan gas, perkebunan, properti, media, hingga kendaraan listrik.",
     "sectors": [
-      "Infrastruktur & manufaktur",
-      "Pertambangan batu bara",
-      "Minyak & gas",
-      "Perkebunan",
+      "Manufaktur & otomotif",
+      "Energi & pertambangan",
+      "Konsumen & pangan",
       "Properti",
-      "Media"
+      "Media & hiburan"
     ],
     "people": [
       {
@@ -742,11 +737,11 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "hq": "Jakarta",
     "summary": "Mayapada Group adalah konglomerat Indonesia yang didirikan Dato Sri Tahir pada 1986, berawal dari usaha garmen dan tekstil sebelum berekspansi ke perbankan melalui Bank Mayapada pada 1990. Grup yang berbasis di Jakarta ini kini bergerak di perbankan, layanan kesehatan (jaringan Mayapada Hospital), properti, ritel bebas bea, dan media.",
     "sectors": [
-      "Perbankan",
-      "Layanan kesehatan",
+      "Perbankan & keuangan",
+      "Kesehatan",
       "Properti",
-      "Ritel & bebas bea",
-      "Media"
+      "Ritel & perdagangan",
+      "Media & hiburan"
     ],
     "people": [
       {
@@ -832,11 +827,11 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "hq": "Jakarta",
     "summary": "Triputra Group adalah konglomerasi Indonesia yang didirikan Theodore Permadi Rachmat, mantan CEO Astra International, pada 1998 dengan holding PT Triputra Investindo Arya di Jakarta. Portofolionya mencakup agribisnis (sawit dan karet), manufaktur komponen otomotif, energi, serta perdagangan, jasa, dan logistik, ditambah saham minoritas keluarga di Alamtri Resources Indonesia (d/h Adaro Energy).",
     "sectors": [
-      "Agribisnis (sawit & karet)",
-      "Manufaktur (komponen otomotif)",
-      "Energi & pertambangan batu bara",
-      "Perdagangan & jasa",
-      "Logistik & pengiriman"
+      "Konsumen & pangan",
+      "Manufaktur & otomotif",
+      "Energi & pertambangan",
+      "Ritel & perdagangan",
+      "Infrastruktur & logistik"
     ],
     "people": [
       {
@@ -939,10 +934,9 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "summary": "Grup investasi Indonesia yang didirikan Hary Tanoesoedibjo pada 1989 sebagai perusahaan sekuritas PT Bhakti Investama, kini berpusat di Jakarta dengan tiga pilar bisnis utama: media & hiburan, jasa keuangan, serta properti & pariwisata. Unit medianya (MNCN) mengoperasikan empat stasiun TV nasional, yaitu RCTI, MNCTV, GTV, dan iNews.",
     "sectors": [
       "Media & hiburan",
-      "Jasa keuangan & perbankan",
-      "Properti & pariwisata",
-      "Investasi",
-      "Energi"
+      "Perbankan & keuangan",
+      "Properti",
+      "Energi & pertambangan"
     ],
     "people": [
       {
@@ -1035,11 +1029,11 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "hq": "Jakarta",
     "summary": "Emtek Group adalah konglomerasi media dan teknologi yang didirikan Eddy Kusnadi Sariaatmadja di Jakarta pada 1983, bermula sebagai distributor komputer Compaq dengan nama PT Elang Mahkota Komputer. Grup ini menaungi stasiun televisi SCTV dan Indosiar melalui Surya Citra Media, platform streaming Vidio, serta kepemilikan saham di Bukalapak, dan berekspansi ke perbankan digital dan layanan kesehatan.",
     "sectors": [
-      "Media & Penyiaran",
-      "Teknologi Digital",
-      "E-commerce",
-      "Perbankan Digital",
-      "Layanan Kesehatan"
+      "Media & hiburan",
+      "Teknologi",
+      "Ritel & perdagangan",
+      "Perbankan & keuangan",
+      "Kesehatan"
     ],
     "people": [
       {
@@ -1131,11 +1125,10 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "summary": "Gudang Garam adalah grup usaha keluarga Wonowidjojo yang berawal dari pabrik rokok kretek yang didirikan Surya Wonowidjojo di Kediri pada 1958, dengan PT Gudang Garam Tbk (IDX: GGRM) sebagai perusahaan induk tercatat dan salah satu produsen kretek terbesar di Indonesia. Grup ini juga merambah distribusi, kertas kemasan, penerbangan, dan infrastruktur, termasuk Bandara Internasional Dhoho Kediri yang beroperasi sejak 2024.",
     "sectors": [
       "Rokok kretek",
-      "Distribusi",
-      "Kertas kemasan",
-      "Infrastruktur bandara",
-      "Penerbangan",
-      "Perkebunan kelapa sawit"
+      "Ritel & perdagangan",
+      "Pulp & kertas",
+      "Infrastruktur & logistik",
+      "Konsumen & pangan"
     ],
     "people": [
       {
@@ -1233,11 +1226,10 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "hq": "Surabaya",
     "summary": "Wings Group adalah grup barang konsumen (FMCG) asal Surabaya yang didirikan pada 21 September 1948 oleh Johannes Ferdinand Katuari dan Harjo Sutanto, bermula dari produksi sabun cuci rumahan bernama Fa Wings. Dikendalikan bersama keluarga Katuari dan Sutanto, grup ini memproduksi deterjen dan produk perawatan rumah tangga, makanan-minuman seperti Mie Sedaap, serta merambah perbankan (Bank MAS), properti, dan oleokimia dengan produk yang dijual hingga puluhan negara.",
     "sectors": [
-      "Barang konsumen (FMCG)",
-      "Makanan & minuman",
-      "Perbankan",
-      "Properti & perhotelan",
-      "Oleokimia & petrokimia"
+      "Konsumen & pangan",
+      "Perbankan & keuangan",
+      "Properti",
+      "Energi & pertambangan"
     ],
     "people": [
       {
@@ -1336,12 +1328,9 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "hq": "Jakarta",
     "summary": "Harita Group adalah konglomerat sumber daya alam milik keluarga Lim yang berawal dari usaha dagang di Kalimantan Timur pada 1915 dan kini berkantor pusat di Jakarta. Lini bisnis utamanya mencakup pertambangan dan pengolahan nikel melalui Harita Nickel (NCKL), bauksit-alumina melalui Cita Mineral Investindo (CITA), serta kelapa sawit melalui Bumitama Agri.",
     "sectors": [
-      "Pertambangan nikel",
-      "Bauksit & alumina",
-      "Perkebunan kelapa sawit",
-      "Kehutanan & kayu",
-      "Batu bara",
-      "Pelayaran"
+      "Energi & pertambangan",
+      "Konsumen & pangan",
+      "Infrastruktur & logistik"
     ],
     "people": [
       {
@@ -1431,11 +1420,7 @@ export const KONGLO_GROUPS: KongloGroup[] = [
     "hq": "Jakarta",
     "summary": "Panin Group adalah grup jasa keuangan Indonesia yang berawal dari pendirian Bank Pan Indonesia (Panin Bank) oleh Mu'min Ali Gunawan di Jakarta pada 17 Agustus 1971, hasil penggabungan tiga bank. Grup ini menaungi sejumlah emiten Bursa Efek Indonesia di bidang perbankan, asuransi, pembiayaan, dan sekuritas, antara lain Panin Bank (PNBN) dan Panin Financial (PNLF).",
     "sectors": [
-      "Perbankan",
-      "Asuransi jiwa",
-      "Pembiayaan (multifinance)",
-      "Sekuritas & manajemen aset",
-      "Perbankan syariah"
+      "Perbankan & keuangan"
     ],
     "people": [
       {
