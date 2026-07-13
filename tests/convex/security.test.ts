@@ -2,32 +2,12 @@ import { convexTest } from "convex-test";
 import { describe, it, expect } from "vitest";
 import { api } from "../../convex/_generated/api";
 import schema from "../../convex/schema";
-import type { Role } from "../../lib/roles";
+import { modules, seedUser } from "./_harness";
 
 // Same harness as property.test.ts. keamanan-staf is the inverse RBAC shape of
 // the cfo-menu features: staf HAS it in its menu (READ ok) but is not an
 // elevated role, so WRITES reject staf; cfo lacks the feature entirely, so cfo
 // is Forbidden at the READ gate. Net: writes are principal-ONLY.
-
-interface GlobImportMeta extends ImportMeta {
-  glob(pattern: string): Record<string, () => Promise<unknown>>;
-}
-const modules = (import.meta as GlobImportMeta).glob(
-  "../../convex/**/!(*.d).{js,ts}",
-);
-
-async function seedUser(
-  t: ReturnType<typeof convexTest>,
-  role: Role | null,
-  email: string,
-) {
-  const userId = await t.run(async (ctx) => {
-    const id = await ctx.db.insert("users", { email });
-    if (role) await ctx.db.insert("roles", { userId: id, role });
-    return id;
-  });
-  return t.withIdentity({ subject: `${userId}|testsession` });
-}
 
 const makeT = () => convexTest(schema, modules);
 

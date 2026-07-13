@@ -16,17 +16,6 @@ import "@testing-library/jest-dom/vitest";
 // property read — so mutations are discriminated by getFunctionName() (stable
 // "features/notiondb/mutations:updateRow" path), not reference identity.
 
-// The real ReactMutation is a *callable* carrying `.withOptimisticUpdate`
-// (chainable). createRow + deleteRow register an optimistic update before
-// awaiting, so the mocks must expose that method (return the same callable) or
-// the hook throws "withOptimisticUpdate is not a function".
-function mockMutation() {
-  const fn = vi.fn() as ReturnType<typeof vi.fn> & {
-    withOptimisticUpdate: (u: unknown) => typeof fn;
-  };
-  return Object.assign(fn, { withOptimisticUpdate: () => fn });
-}
-
 const createRow = mockMutation();
 const updateRow = mockMutation();
 const deleteRow = mockMutation();
@@ -41,13 +30,12 @@ vi.mock("convex/react", () => ({ useMutation: (r: unknown) => useMutation(r) }))
 
 const toast = vi.fn();
 const log = vi.fn();
-vi.mock("../../frontend/shared", () => ({
-  useToast: () => toast,
-  useActivityLog: () => log,
-  isConflict: (e: unknown) => e instanceof Error && /conflict/i.test(e.message),
-}));
+vi.mock("../../frontend/shared", async () =>
+  (await import("./_writes-harness")).sharedMock(() => toast, () => log),
+);
 
 import { useStudioWrites } from "../../frontend/slices/data-studio/writes";
+import { mockMutation } from "./_writes-harness";
 
 const CONFLICT = "conflict: data telah berubah";
 

@@ -28,7 +28,7 @@ interface Props {
   onTitleChange?: (next: string) => void;
   /** Icon picker / display. Host owns; fallback shows a neutral glyph. */
   iconSlot?: ReactNode;
-  /** Properties form (typically a NotionProperty list). */
+  /** Properties form (typically a property-cells list). */
   propertiesSlot?: ReactNode;
   /** Block editor surface (rich-text / blocks). */
   blocksSlot?: ReactNode;

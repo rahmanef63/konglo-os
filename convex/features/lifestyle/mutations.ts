@@ -106,23 +106,6 @@ export const createRequest = mutation({
   },
 });
 
-export const updateRequest = mutation({
-  args: {
-    id: v.id("conciergeRequests"),
-    label: v.optional(v.string()),
-    order: v.optional(v.number()),
-    // Optimistic-concurrency token. When supplied it must equal the row's
-    // current version (undefined → 0), else a conflict is thrown. Every write
-    // bumps version; omitting it skips the check but still increments.
-    expectedVersion: v.optional(v.number()),
-  },
-  handler: async (ctx, { id, expectedVersion, ...patch }) => {
-    await requireFeatureWrite(ctx, "hiburan-gaya-hidup");
-    assertOrder(patch.order);
-    await casBump(ctx, "conciergeRequests", id, expectedVersion, patch);
-  },
-});
-
 export const removeRequest = mutation({
   args: { id: v.id("conciergeRequests") },
   handler: async (ctx, { id }) => {

@@ -4,25 +4,6 @@ import { renderHook, act } from "@testing-library/react";
 import { getFunctionName } from "convex/server";
 import "@testing-library/jest-dom/vitest";
 
-// useSecurityWrites binds six keamanan-staf mutations to a toast + audit log:
-// createStaff/updateStaff/removeStaff + createZone/updateZone/removeZone. There's
-// no client-side transform (no scaling/clamp) and no validation — args are plain
-// passthrough — so the load-bearing logic is: correct args forwarded, success vs
-// warn toast text, audit log() text, and the failure path (warn toast + RE-THROW
-// so FormModal stays open).
-//
-// `api` from _generated is `anyApi` — a proxy returning a *fresh* object per read,
-// so we discriminate by getFunctionName() (stable ":<mutationName>" suffix), not
-// reference identity. The real ReactMutation is a callable that also carries
-// `.withOptimisticUpdate`; the mocks expose it (returning the same callable) so a
-// hook that chains it won't throw, and the awaited resolve/reject drives assertions.
-function mockMutation() {
-  const fn = vi.fn() as ReturnType<typeof vi.fn> & {
-    withOptimisticUpdate: (u: unknown) => typeof fn;
-  };
-  return Object.assign(fn, { withOptimisticUpdate: () => fn });
-}
-
 const createStaff = mockMutation();
 const updateStaff = mockMutation();
 const removeStaff = mockMutation();
@@ -44,13 +25,13 @@ vi.mock("convex/react", () => ({ useMutation: (r: unknown) => useMutation(r) }))
 
 const toast = vi.fn();
 const log = vi.fn();
-vi.mock("../../frontend/shared", () => ({
-  useToast: () => toast,
-  useActivityLog: () => log,
-}));
+vi.mock("../../frontend/shared", async () =>
+  (await import("./_writes-harness")).sharedMock(() => toast, () => log),
+);
 
 import { useSecurityWrites } from "../../frontend/slices/keamanan-staf/writes";
 import type { Id } from "../../convex/_generated/dataModel";
+import { mockMutation } from "./_writes-harness";
 
 const staffInput = {
   name: "Budi",

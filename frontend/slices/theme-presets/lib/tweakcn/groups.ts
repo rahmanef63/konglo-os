@@ -1,18 +1,5 @@
 import type { TweakcnPresetGroup, TweakcnPresetMeta } from "./types";
 
-/** Gimmicky presets hidden from the picker by default. Registry data
- *  preserved — `?theme=doom-64` deep-links still resolve via the
- *  unfiltered registry. */
-export const HIDDEN_PRESETS: ReadonlySet<string> = new Set([
-  "neo-brutalism",
-  "doom-64",
-  "retro-arcade",
-  "cyberpunk",
-  "bubblegum",
-  "candyland",
-  "pastel-dreams",
-]);
-
 export const TWEAKCN_PRESET_GROUPS: ReadonlyArray<{
   id: string;
   label: string;
@@ -54,8 +41,9 @@ export const TWEAKCN_PRESET_GROUPS: ReadonlyArray<{
 export function groupTweakcnPresets<T extends TweakcnPresetMeta>(
   all: T[],
 ): TweakcnPresetGroup<T>[] {
-  const visible = all.filter((p) => !HIDDEN_PRESETS.has(p.name));
-  const byName = new Map(visible.map((p) => [p.name, p]));
+  // Gimmick presets are pruned from registry-data.json itself — every
+  // registry entry is pickable, so no hidden-set filter here.
+  const byName = new Map(all.map((p) => [p.name, p]));
   const seen = new Set<string>();
   const grouped: TweakcnPresetGroup<T>[] = TWEAKCN_PRESET_GROUPS.map((g) => ({
     id: g.id,
@@ -69,7 +57,7 @@ export function groupTweakcnPresets<T extends TweakcnPresetMeta>(
       }),
   })).filter((g) => g.items.length > 0);
 
-  const rest = visible.filter((p) => !seen.has(p.name));
+  const rest = all.filter((p) => !seen.has(p.name));
   if (rest.length) {
     grouped.push({ id: "other", label: "Lainnya", items: rest });
   }

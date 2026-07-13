@@ -13,16 +13,6 @@ import "@testing-library/jest-dom/vitest";
 // `api` from _generated is `anyApi` — a proxy returning a fresh object per read,
 // so we discriminate mutations by getFunctionName() suffix, not reference identity.
 
-// Real ReactMutation is callable AND carries `.withOptimisticUpdate`. The hook may
-// register an optimistic update before awaiting; the mock must expose that method
-// (returning the same callable) or the hook throws.
-function mockMutation() {
-  const fn = vi.fn() as ReturnType<typeof vi.fn> & {
-    withOptimisticUpdate: (u: unknown) => typeof fn;
-  };
-  return Object.assign(fn, { withOptimisticUpdate: () => fn });
-}
-
 const create = mockMutation();
 const update = mockMutation();
 const remove = mockMutation();
@@ -37,13 +27,13 @@ vi.mock("convex/react", () => ({ useMutation: (r: unknown) => useMutation(r) }))
 
 const toast = vi.fn();
 const log = vi.fn();
-vi.mock("../../frontend/shared", () => ({
-  useToast: () => toast,
-  useActivityLog: () => log,
-}));
+vi.mock("../../frontend/shared", async () =>
+  (await import("./_writes-harness")).sharedMock(() => toast, () => log),
+);
 
 import { useHiburanWrites } from "../../frontend/slices/hiburan-gaya-hidup/writes";
 import type { Id } from "../../convex/_generated/dataModel";
+import { mockMutation } from "./_writes-harness";
 
 // PALETTE cycle from the SUT — index 0 must be the first color so count=0 picks it.
 const PALETTE_FIRST = "var(--color-mk-purple)";

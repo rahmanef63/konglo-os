@@ -1,43 +1,12 @@
 import { convexTest } from "convex-test";
 import { describe, it, expect } from "vitest";
 import { api } from "../../convex/_generated/api";
-import schema from "../../convex/schema";
 import type { Role } from "../../lib/roles";
-
-// Scoped type for Vite's import.meta.glob (vite/client types aren't in tsconfig).
-// Kept local so it never leaks into the app's global ImportMeta surface.
-interface GlobImportMeta extends ImportMeta {
-  glob(pattern: string): Record<string, () => Promise<unknown>>;
-}
-
-// convex-test resolves the function-module root from these paths, so the glob
-// MUST reach into convex/_generated (it splits a matched path on "_generated").
-// Globbing the whole convex tree from this test file (tests/convex → ../../convex)
-// auto-includes _generated + every feature module — no hand-maintained list.
-const modules = (import.meta as GlobImportMeta).glob(
-  "../../convex/**/!(*.d).{js,ts}",
-);
+import { makeT, seedUser } from "./_harness";
 
 // @convex-dev/auth's getAuthUserId returns identity.subject.split("|")[0]. So an
-// identity whose subject is `<userId>|<session>` authenticates AS that user row.
-// We insert a real users doc, attach a roles row, and impersonate via subject.
-async function seedUser(
-  t: ReturnType<typeof convexTest>,
-  role: Role | null,
-  email: string,
-) {
-  const userId = await t.run(async (ctx) => {
-    const id = await ctx.db.insert("users", { email });
-    if (role) await ctx.db.insert("roles", { userId: id, role });
-    return id;
-  });
-  // withIdentity sets ctx.auth.getUserIdentity().subject verbatim.
-  return t.withIdentity({ subject: `${userId}|testsession` });
-}
-
-function makeT() {
-  return convexTest(schema, modules);
-}
+// identity whose subject is `<userId>|<session>` authenticates AS that user row —
+// see seedUser in ./_harness.
 
 // --- READ gate: gated query throws for staf, passes for principal, follows the
 // canAccess feature-map for cfo. -----------------------------------------------
@@ -514,20 +483,19 @@ describe("requireFeature — office.getFigures/listAllocations (kekayaan-kas)", 
   });
 });
 
-// --- requireUser-only fns stay open to every role (own-role lookup). ----------
-describe("requireUser-only fns (own-role) — open to staf", () => {
-  it("rbac.myRole: staf can read its own role (needed to build the menu)", async () => {
+// --- requireUser-only fns stay open to every role (own-identity lookup). ------
+describe("requireUser-only fns (own-identity) — open to staf", () => {
+  it("rbac.me: staf can read its own role (needed to build the menu)", async () => {
     const t = makeT();
     const asStaf = await seedUser(t, "staf", "mr@mail.com");
-    await expect(
-      asStaf.query(api.features.rbac.queries.myRole, {}),
-    ).resolves.toBe("staf");
+    const me = await asStaf.query(api.features.rbac.queries.me, {});
+    expect(me?.role).toBe("staf");
   });
 
-  it("rbac.myRole: signed out returns null (no throw — client redirects)", async () => {
+  it("rbac.me: signed out returns null (no throw — client redirects)", async () => {
     const t = makeT();
     await expect(
-      t.query(api.features.rbac.queries.myRole, {}),
+      t.query(api.features.rbac.queries.me, {}),
     ).resolves.toBeNull();
   });
 });

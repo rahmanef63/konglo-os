@@ -1,5 +1,4 @@
-import { mutation, internalMutation } from "./_generated/server";
-import { requireAdmin } from "./_shared/auth";
+import { internalMutation } from "./_generated/server";
 import type { MutationCtx } from "./_generated/server";
 import { seedFilantropi } from "./features/filantropi/seed";
 import { seedLifestyle } from "./features/lifestyle/seed";
@@ -110,19 +109,8 @@ export async function seedAll(ctx: MutationCtx) {
   return "seeded";
 }
 
-// Authed path — called by use-os-bootstrap on first load. Elevated-only so a
-// plain "staf" cannot trigger seed writes; principal/cfo (the seeded accounts)
-// pass. seed data is fully idempotent, so re-running on each elevated login
-// is a no-op after the first.
-export const run = mutation({
-  args: {},
-  handler: async (ctx) => {
-    await requireAdmin(ctx);
-    return seedAll(ctx);
-  },
-});
-
 // Internal path — for `convex run seed:runInternal` (no auth ctx via CLI).
+// The only entry point: the frontend never auto-seeds (real users start empty).
 export const runInternal = internalMutation({
   args: {},
   handler: async (ctx) => seedAll(ctx),

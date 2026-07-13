@@ -1,34 +1,7 @@
 import { convexTest } from "convex-test";
 import { describe, it, expect } from "vitest";
 import { api } from "../../convex/_generated/api";
-import schema from "../../convex/schema";
-import type { Role } from "../../lib/roles";
-
-// Mirrors tests/convex/authz.test.ts harness: glob reaches convex/_generated so
-// convex-test resolves the function-module root; impersonation via subject.
-interface GlobImportMeta extends ImportMeta {
-  glob(pattern: string): Record<string, () => Promise<unknown>>;
-}
-const modules = (import.meta as GlobImportMeta).glob(
-  "../../convex/**/!(*.d).{js,ts}",
-);
-
-async function seedUser(
-  t: ReturnType<typeof convexTest>,
-  role: Role | null,
-  email: string,
-) {
-  const userId = await t.run(async (ctx) => {
-    const id = await ctx.db.insert("users", { email });
-    if (role) await ctx.db.insert("roles", { userId: id, role });
-    return id;
-  });
-  return t.withIdentity({ subject: `${userId}|testsession` });
-}
-
-function makeT() {
-  return convexTest(schema, modules);
-}
+import { makeT, seedUser } from "./_harness";
 
 // Seed one heir row directly so update/remove have a REAL id for the principal
 // (positive) path. Returns the inserted id.

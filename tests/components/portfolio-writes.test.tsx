@@ -13,18 +13,6 @@ import "@testing-library/jest-dom/vitest";
 // property read, so we discriminate mutations by getFunctionName() (stable
 // "features/subsidiaries/mutations:create" path), not reference identity.
 
-// The real ReactMutation is a *callable* that also carries `.withOptimisticUpdate`
-// (chainable: it returns a mutation with the update registered). add()/del() now
-// register an optimistic update before awaiting, so the mocks must expose that
-// method or the hook throws "withOptimisticUpdate is not a function". We make it
-// return the same callable so the awaited resolve/reject still drives the assertions.
-function mockMutation() {
-  const fn = vi.fn() as ReturnType<typeof vi.fn> & {
-    withOptimisticUpdate: (u: unknown) => typeof fn;
-  };
-  return Object.assign(fn, { withOptimisticUpdate: () => fn });
-}
-
 const create = mockMutation();
 const remove = mockMutation();
 const useMutation = vi.fn((ref: unknown) => {
@@ -37,14 +25,13 @@ vi.mock("convex/react", () => ({ useMutation: (r: unknown) => useMutation(r) }))
 
 const toast = vi.fn();
 const log = vi.fn();
-vi.mock("../../frontend/shared", () => ({
-  useToast: () => toast,
-  useActivityLog: () => log,
-  isConflict: (e: unknown) => e instanceof Error && /conflict/i.test(e.message),
-}));
+vi.mock("../../frontend/shared", async () =>
+  (await import("./_writes-harness")).sharedMock(() => toast, () => log),
+);
 
 import { usePortfolioWrites } from "../../frontend/slices/portofolio-bisnis/writes";
 import type { Id } from "../../convex/_generated/dataModel";
+import { mockMutation } from "./_writes-harness";
 
 describe("usePortfolioWrites", () => {
   beforeEach(() => {

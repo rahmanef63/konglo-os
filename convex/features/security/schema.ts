@@ -47,7 +47,5 @@ export const securityTables = {
     order: v.number(),
     // Optimistic-concurrency token (additive + optional → deploy-safe).
     version: v.optional(v.number()),
-  })
-    .index("by_slug", ["slug"])
-    .index("by_order", ["order"]),
+  }).index("by_order", ["order"]),
 };

@@ -1,21 +1,7 @@
 import { convexTest } from "convex-test";
 import { describe, it, expect } from "vitest";
 import { api } from "../../convex/_generated/api";
-import schema from "../../convex/schema";
-
-// Same module-glob convention as authz.test.ts: convex-test resolves the
-// function-module root by splitting a matched path on "_generated", so the glob
-// MUST reach into convex/_generated (it does via ../../convex/**).
-interface GlobImportMeta extends ImportMeta {
-  glob(pattern: string): Record<string, () => Promise<unknown>>;
-}
-const modules = (import.meta as GlobImportMeta).glob(
-  "../../convex/**/!(*.d).{js,ts}",
-);
-
-function makeT() {
-  return convexTest(schema, modules);
-}
+import { makeT } from "./_harness";
 
 // @convex-dev/auth's getAuthUserId returns identity.subject.split("|")[0], so an
 // identity whose subject is `<userId>|<session>` authenticates AS that user row.

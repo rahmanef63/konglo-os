@@ -15,16 +15,6 @@ import "@testing-library/jest-dom/vitest";
 // read — so we discriminate mutations by getFunctionName() (stable
 // "features/kesehatan/mutations:createMedicalTeam" path), not reference identity.
 
-// The real ReactMutation is a callable that also carries `.withOptimisticUpdate`.
-// Mirror that shape so the hook never throws even if a mutation registers an
-// optimistic update before awaiting.
-function mockMutation() {
-  const fn = vi.fn() as ReturnType<typeof vi.fn> & {
-    withOptimisticUpdate: (u: unknown) => typeof fn;
-  };
-  return Object.assign(fn, { withOptimisticUpdate: () => fn });
-}
-
 const createTeam = mockMutation();
 const updateTeam = mockMutation();
 const removeTeam = mockMutation();
@@ -46,13 +36,13 @@ vi.mock("convex/react", () => ({ useMutation: (r: unknown) => useMutation(r) }))
 
 const toast = vi.fn();
 const log = vi.fn();
-vi.mock("../../frontend/shared", () => ({
-  useToast: () => toast,
-  useActivityLog: () => log,
-}));
+vi.mock("../../frontend/shared", async () =>
+  (await import("./_writes-harness")).sharedMock(() => toast, () => log),
+);
 
 import { useKesehatanWrites } from "../../frontend/slices/kesehatan/writes";
 import type { Id } from "../../convex/_generated/dataModel";
+import { mockMutation } from "./_writes-harness";
 
 // pickColor cycles PALETTE from frontend/slices/kesehatan/data.ts:
 // [green, blue, purple, orange, gold]. teamCount=0 → green; scheduleCount=1 → blue.

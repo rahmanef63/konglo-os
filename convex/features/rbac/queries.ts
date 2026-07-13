@@ -2,20 +2,6 @@ import { query } from "../../_generated/server";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { requirePrincipal } from "../../_shared/auth";
 
-// Current user's role. Returns null if signed out (client redirects to /login).
-export const myRole = query({
-  args: {},
-  handler: async (ctx) => {
-    const userId = await getAuthUserId(ctx);
-    if (!userId) return null;
-    const row = await ctx.db
-      .query("roles")
-      .withIndex("by_user", (q) => q.eq("userId", userId))
-      .first();
-    return row?.role ?? null;
-  },
-});
-
 // Current user identity + demo status. `isDemo` = anonymous session (the
 // @convex-dev/auth Anonymous provider sets users.isAnonymous, and demo logins
 // carry no email) — the SAME marker CareerPack uses. The client treats a demo

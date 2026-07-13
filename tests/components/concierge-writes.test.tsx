@@ -15,17 +15,6 @@ import "@testing-library/jest-dom/vitest";
 // `api` from _generated is `anyApi` — a proxy returning a *fresh* object per read,
 // so we discriminate mutations by getFunctionName() suffix, not reference identity.
 
-// ReactMutation is a *callable* carrying `.withOptimisticUpdate` (chainable). The
-// hook calls .withOptimisticUpdate on createReservation/removeReservation/
-// createRequest/removeRequest, so the mocks must expose it or the hook throws.
-// We return the same callable so the awaited resolve/reject still drives asserts.
-function mockMutation() {
-  const fn = vi.fn() as ReturnType<typeof vi.fn> & {
-    withOptimisticUpdate: (u: unknown) => typeof fn;
-  };
-  return Object.assign(fn, { withOptimisticUpdate: () => fn });
-}
-
 const createReservation = mockMutation();
 const updateReservation = mockMutation();
 const removeReservation = mockMutation();
@@ -45,13 +34,13 @@ vi.mock("convex/react", () => ({ useMutation: (r: unknown) => useMutation(r) }))
 
 const toast = vi.fn();
 const log = vi.fn();
-vi.mock("../../frontend/shared", () => ({
-  useToast: () => toast,
-  useActivityLog: () => log,
-}));
+vi.mock("../../frontend/shared", async () =>
+  (await import("./_writes-harness")).sharedMock(() => toast, () => log),
+);
 
 import { useConciergeWrites } from "../../frontend/slices/hiburan-gaya-hidup/concierge-writes";
 import type { Id } from "../../convex/_generated/dataModel";
+import { mockMutation } from "./_writes-harness";
 
 describe("useConciergeWrites", () => {
   beforeEach(() => {

@@ -1,76 +1,13 @@
-import { convexTest } from "convex-test";
 import { describe, it, expect } from "vitest";
-import type { GenericSchema, SchemaDefinition } from "convex/server";
-import schema from "../../convex/schema";
-import {
-  signInRateLimiter,
-  SIGN_IN_LIMIT,
-} from "../../convex/authRateLimit";
+import { signInRateLimiter, SIGN_IN_LIMIT } from "../../convex/authRateLimit";
+import { makeT as makeBaseT } from "./_harness";
+import { registerRateLimiter } from "./rate-limiter-harness";
 
-// Scoped type for Vite's import.meta.glob (vite/client types aren't in tsconfig).
-// Kept local so it never leaks into the app's global ImportMeta surface — same
-// pattern as authz.test.ts. (We deliberately DON'T import the component's own
-// `@convex-dev/rate-limiter/test` helper: that module ships a
-// `/// <reference types="vite/client" />` which, once in the tsc program, makes
-// the local GlobImportMeta interfaces across the convex suite conflict with
-// vite's real ImportMeta.glob. Registering the component inline keeps tsc green
-// repo-wide.)
-interface GlobImportMeta extends ImportMeta {
-  glob(pattern: string): Record<string, () => Promise<unknown>>;
-}
-
-// App-side function modules (incl. authRateLimit.ts + convex.config.ts, which
-// registers the rate-limiter component in the manifest). Same glob convention
-// as authz.test.ts — reaches convex/_generated so convex-test finds the root.
-const modules = (import.meta as GlobImportMeta).glob(
-  "../../convex/**/!(*.d).{js,ts}",
-);
-
-// The rate-limiter component's OWN function modules + schema. convex-test does
-// NOT auto-host an `app.use(...)` component — it must be registered with the
-// component's schema + module glob (exactly what the package's
-// `@convex-dev/rate-limiter/test` `register()` helper does internally; we don't
-// import that helper because of the vite/client reference noted above). We glob
-// the installed component SOURCE directly: a filesystem glob bypasses the
-// package's `exports` map (which blocks a deep `dist/component/schema.js`
-// import) and physically resolves schema.ts + lib.ts + _generated, so
-// `components.rateLimiter.lib.*` is live in the mock backend. `!(*.test)` drops
-// the component's own *.test.ts files (not function modules).
-const rateLimiterModules = (import.meta as GlobImportMeta).glob(
-  "../../node_modules/@convex-dev/rate-limiter/src/component/**/!(*.test).ts",
-);
-
-// Lazy-load the component's schema default export from that same glob. Resolved
-// once (cached) before any registration so makeT stays cheap per test.
-let rateLimiterSchemaPromise: Promise<
-  SchemaDefinition<GenericSchema, boolean>
-> | null = null;
-function loadRateLimiterSchema() {
-  if (!rateLimiterSchemaPromise) {
-    const key = Object.keys(rateLimiterModules).find((k) =>
-      k.endsWith("/schema.ts"),
-    );
-    if (!key) {
-      throw new Error(
-        "rate-limiter component schema.ts not found in the module glob — " +
-          "the package layout changed; update the glob.",
-      );
-    }
-    rateLimiterSchemaPromise = rateLimiterModules[key]().then(
-      (m) =>
-        (m as { default: SchemaDefinition<GenericSchema, boolean> }).default,
-    );
-  }
-  return rateLimiterSchemaPromise;
-}
-
+// convex-test does not auto-host `app.use(...)` components — the shared
+// rate-limiter-harness registers the component's schema + modules.
 async function makeT() {
-  const t = convexTest(schema, modules);
-  t.registerComponent(
-    "rateLimiter",
-    await loadRateLimiterSchema(),
-    rateLimiterModules,
-  );
+  const t = makeBaseT();
+  await registerRateLimiter(t);
   return t;
 }
 

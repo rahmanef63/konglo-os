@@ -8,7 +8,7 @@ import type { Role } from "../../lib/roles";
 // principal can then grant cfo/staf via the admin surface (rbac.setRole).
 //
 // NO hardcoded secret: this reads env only. Set your owner (principal) account via
-// PRINCIPAL_EMAIL (or ADMIN_EMAILS). The default below is a placeholder — override it.
+// PRINCIPAL_EMAIL. The default below is a placeholder — override it.
 // Add more accounts (e.g. the cfo's real Google email) via KONGLO_ALLOWLIST,
 // format: "email:role,email:role" (role ∈ principal|cfo|staf).
 const VALID: Role[] = ["principal", "cfo", "staf"];
@@ -16,13 +16,11 @@ const VALID: Role[] = ["principal", "cfo", "staf"];
 export function roleForEmail(email: string | undefined | null): Role | null {
   if (!email) return null;
   const e = email.trim().toLowerCase();
-  // Owner → principal. PRINCIPAL_EMAIL (single) OR ADMIN_EMAILS (comma list) — both
-  // accepted so either env-var convention works; default is the owner's account.
-  const owners = [
-    process.env.PRINCIPAL_EMAIL ?? "owner@example.com",
-    ...(process.env.ADMIN_EMAILS ?? "").split(","),
-  ].map((s) => s.trim().toLowerCase());
-  if (owners.includes(e)) return "principal";
+  // Owner → principal via PRINCIPAL_EMAIL; default is a placeholder — override it.
+  const owner = (process.env.PRINCIPAL_EMAIL ?? "owner@example.com")
+    .trim()
+    .toLowerCase();
+  if (e === owner) return "principal";
   // Others: explicit email:role entries (role ∈ principal|cfo|staf).
   for (const entry of (process.env.KONGLO_ALLOWLIST ?? "").split(",")) {
     const [mail, role] = entry.split(":").map((s) => s?.trim().toLowerCase());

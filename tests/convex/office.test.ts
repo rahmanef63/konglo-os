@@ -2,30 +2,7 @@ import { convexTest } from "convex-test";
 import { describe, it, expect } from "vitest";
 import { api } from "../../convex/_generated/api";
 import schema from "../../convex/schema";
-import type { Role } from "../../lib/roles";
-
-// Same harness as authz.test.ts: glob the whole convex tree (must reach
-// _generated for convex-test's module-root resolution) and impersonate via a
-// `<userId>|<session>` identity subject that getAuthUserId splits back to userId.
-interface GlobImportMeta extends ImportMeta {
-  glob(pattern: string): Record<string, () => Promise<unknown>>;
-}
-const modules = (import.meta as GlobImportMeta).glob(
-  "../../convex/**/!(*.d).{js,ts}",
-);
-
-async function seedUser(
-  t: ReturnType<typeof convexTest>,
-  role: Role | null,
-  email: string,
-) {
-  const userId = await t.run(async (ctx) => {
-    const id = await ctx.db.insert("users", { email });
-    if (role) await ctx.db.insert("roles", { userId: id, role });
-    return id;
-  });
-  return t.withIdentity({ subject: `${userId}|testsession` });
-}
+import { modules, seedUser } from "./_harness";
 
 const makeT = () => convexTest(schema, modules);
 

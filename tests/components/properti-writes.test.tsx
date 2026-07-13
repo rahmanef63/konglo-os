@@ -15,16 +15,6 @@ import "@testing-library/jest-dom/vitest";
 // `api` from _generated is `anyApi` — a proxy returning a fresh object per read —
 // so mutations are discriminated by getFunctionName() (stable path), not identity.
 
-// The real ReactMutation is a callable carrying `.withOptimisticUpdate`. The hook
-// here never calls it, but we mirror the proven harness so the mock is safe even
-// if the hook later registers an optimistic update.
-function mockMutation() {
-  const fn = vi.fn() as ReturnType<typeof vi.fn> & {
-    withOptimisticUpdate: (u: unknown) => typeof fn;
-  };
-  return Object.assign(fn, { withOptimisticUpdate: () => fn });
-}
-
 const create = mockMutation();
 const update = mockMutation();
 const remove = mockMutation();
@@ -39,13 +29,13 @@ vi.mock("convex/react", () => ({ useMutation: (r: unknown) => useMutation(r) }))
 
 const toast = vi.fn();
 const log = vi.fn();
-vi.mock("../../frontend/shared", () => ({
-  useToast: () => toast,
-  useActivityLog: () => log,
-}));
+vi.mock("../../frontend/shared", async () =>
+  (await import("./_writes-harness")).sharedMock(() => toast, () => log),
+);
 
 import { usePropertiWrites } from "../../frontend/slices/properti-aset/writes";
 import type { Id } from "../../convex/_generated/dataModel";
+import { mockMutation } from "./_writes-harness";
 
 describe("usePropertiWrites", () => {
   beforeEach(() => {

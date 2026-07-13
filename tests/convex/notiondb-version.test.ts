@@ -3,43 +3,8 @@ import { describe, it, expect } from "vitest";
 import { api } from "../../convex/_generated/api";
 import schema from "../../convex/schema";
 import type { Id } from "../../convex/_generated/dataModel";
-import type { Role } from "../../lib/roles";
 import { registerRateLimiter } from "./rate-limiter-harness";
-
-// data-studio (notiondb) generic-CRUD optimistic-locking + create-whitelist
-// coverage. The 11-table _version lock (CAS compare-and-set) was added to the
-// per-feature mutations but notiondb's createRow/updateRow/deleteRow originally
-// never touched `version`, defeating the lock for every table the admin surface
-// edits. This suite proves the fix on the generic surface:
-//   - createRow seeds version 1 AND ignores an injected `version` in values
-//     (a poisoned optimistic token / arbitrary schema-valid field is dropped
-//     because the insert doc is built from the registry column whitelist).
-//   - updateRow: STALE expectedVersion → /conflict/ (row untouched); MATCHING →
-//     succeeds + bumps; OMITTED → succeeds + still increments.
-//   - deleteRow: STALE expectedVersion → /conflict/ (row survives); MATCHING →
-//     deletes; OMITTED → deletes.
-// Harness mirrors version.test.ts / authz.test.ts: glob the whole convex tree
-// (must reach _generated for convex-test's module-root resolution) and
-// impersonate via a `<userId>|<session>` subject getAuthUserId splits to userId.
-interface GlobImportMeta extends ImportMeta {
-  glob(pattern: string): Record<string, () => Promise<unknown>>;
-}
-const modules = (import.meta as GlobImportMeta).glob(
-  "../../convex/**/!(*.d).{js,ts}",
-);
-
-async function seedUser(
-  t: ReturnType<typeof convexTest>,
-  role: Role | null,
-  email: string,
-) {
-  const userId = await t.run(async (ctx) => {
-    const id = await ctx.db.insert("users", { email });
-    if (role) await ctx.db.insert("roles", { userId: id, role });
-    return id;
-  });
-  return t.withIdentity({ subject: `${userId}|testsession` });
-}
+import { modules, seedUser } from "./_harness";
 
 // notiondb create/update/deleteRow now consume a per-user write token, so the
 // rate-limiter component must be registered or the limiter throws (prod has a

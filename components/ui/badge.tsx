@@ -7,14 +7,12 @@ const badgeVariants = cva(
   "inline-flex items-center justify-center gap-1 w-fit shrink-0 whitespace-nowrap rounded-md border px-2.5 py-0.5 text-xs font-medium transition-colors",
   {
     variants: {
+      // Sole consumer is Pill (always outline); other shadcn variants removed.
       variant: {
-        default: "border-transparent bg-primary text-primary-foreground",
-        secondary: "border-transparent bg-secondary text-secondary-foreground",
-        destructive: "border-transparent bg-destructive text-destructive-foreground",
         outline: "border-border text-foreground",
       },
     },
-    defaultVariants: { variant: "default" },
+    defaultVariants: { variant: "outline" },
   },
 );
 

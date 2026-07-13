@@ -1,38 +1,11 @@
-import { convexTest } from "convex-test";
 import { describe, it, expect } from "vitest";
 import { api } from "../../convex/_generated/api";
-import schema from "../../convex/schema";
-import type { Role } from "../../lib/roles";
+import { makeT, seedUser } from "./_harness";
 
 // Mirrors grants-events.test.ts: same glob + impersonation helpers.
 // "hiburan-gaya-hidup" is absent from BOTH cfo's and staf's ROLE_MENU, so the
 // concierge writes are principal-only — cfo and staf are blocked at the READ
 // gate inside requireFeatureWrite, before the elevated-role check.
-
-interface GlobImportMeta extends ImportMeta {
-  glob(pattern: string): Record<string, () => Promise<unknown>>;
-}
-
-const modules = (import.meta as GlobImportMeta).glob(
-  "../../convex/**/!(*.d).{js,ts}",
-);
-
-async function seedUser(
-  t: ReturnType<typeof convexTest>,
-  role: Role | null,
-  email: string,
-) {
-  const userId = await t.run(async (ctx) => {
-    const id = await ctx.db.insert("users", { email });
-    if (role) await ctx.db.insert("roles", { userId: id, role });
-    return id;
-  });
-  return t.withIdentity({ subject: `${userId}|testsession` });
-}
-
-function makeT() {
-  return convexTest(schema, modules);
-}
 
 const reservation = { emoji: "✈️", label: "Private Jet" };
 const request = { label: "Reservasi yacht akhir pekan" };
@@ -146,37 +119,15 @@ describe("lifestyle.mutations — WRITE gate (conciergeRequests)", () => {
     ).resolves.toBeDefined();
   });
 
-  it("createRequest rejects a non-integer order on update", async () => {
-    const t = makeT();
-    const asPrincipal = await seedUser(t, "principal", "req-order@mail.com");
-    const id = await asPrincipal.mutation(
-      api.features.lifestyle.mutations.createRequest,
-      request,
-    );
-    await expect(
-      asPrincipal.mutation(api.features.lifestyle.mutations.updateRequest, {
-        id,
-        order: 2.5,
-      }),
-    ).rejects.toThrow(/order/);
-  });
-
-  it("happy path: principal creates then updates a request", async () => {
+  it("happy path: principal creates a request", async () => {
     const t = makeT();
     const asPrincipal = await seedUser(t, "principal", "req-happy@mail.com");
     const id = await asPrincipal.mutation(
       api.features.lifestyle.mutations.createRequest,
       request,
     );
-    // A void mutation handler resolves to null over the wire, not undefined.
-    await expect(
-      asPrincipal.mutation(api.features.lifestyle.mutations.updateRequest, {
-        id,
-        label: "Reservasi yacht — Komodo 3 hari",
-      }),
-    ).resolves.toBeNull();
     const row = await t.run((ctx) => ctx.db.get(id));
-    expect(row?.label).toBe("Reservasi yacht — Komodo 3 hari");
+    expect(row?.label).toBe(request.label);
   });
 });
 
@@ -320,24 +271,5 @@ describe("lifestyle.removeRequest — auth gate + CAS survival", () => {
       }),
     ).resolves.toBeNull();
     expect(await t.run((ctx) => ctx.db.get(id))).toBeNull();
-  });
-
-  it("stale expectedVersion conflicts on updateRequest; the row survives unchanged", async () => {
-    const t = makeT();
-    const asPrincipal = await seedUser(t, "principal", "req-rm-cas@mail.com");
-    const id = await asPrincipal.mutation(
-      api.features.lifestyle.mutations.createRequest,
-      request,
-    );
-    await expect(
-      asPrincipal.mutation(api.features.lifestyle.mutations.updateRequest, {
-        id,
-        label: "Should not land",
-        expectedVersion: 0,
-      }),
-    ).rejects.toThrow(/conflict/);
-    const row = await t.run((ctx) => ctx.db.get(id));
-    expect(row).not.toBeNull();
-    expect(row?.label).toBe("Reservasi yacht akhir pekan"); // unchanged
   });
 });

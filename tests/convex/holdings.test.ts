@@ -1,37 +1,10 @@
-import { convexTest } from "convex-test";
 import { describe, it, expect } from "vitest";
 import { api } from "../../convex/_generated/api";
-import schema from "../../convex/schema";
-import type { Role } from "../../lib/roles";
+import { makeT, seedUser } from "./_harness";
 
 // Mirrors grants-events.test.ts harness. investasi-pasar IS in cfo's ROLE_MENU
 // (lib/roles.ts), so holdings reads + writes are cfo + principal; staf is
 // blocked at the READ gate inside requireFeature / requireFeatureWrite.
-
-interface GlobImportMeta extends ImportMeta {
-  glob(pattern: string): Record<string, () => Promise<unknown>>;
-}
-
-const modules = (import.meta as GlobImportMeta).glob(
-  "../../convex/**/!(*.d).{js,ts}",
-);
-
-async function seedUser(
-  t: ReturnType<typeof convexTest>,
-  role: Role | null,
-  email: string,
-) {
-  const userId = await t.run(async (ctx) => {
-    const id = await ctx.db.insert("users", { email });
-    if (role) await ctx.db.insert("roles", { userId: id, role });
-    return id;
-  });
-  return t.withIdentity({ subject: `${userId}|testsession` });
-}
-
-function makeT() {
-  return convexTest(schema, modules);
-}
 
 const holding = {
   name: "Apple Inc.",

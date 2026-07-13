@@ -8,8 +8,7 @@ import { Launcher } from "./launcher";
 // Beranda — the OS home, rebuilt as a calm "pure launcher" (Google-homepage
 // feel): a centered search that opens the shared ⌘K CommandPalette, quick menu
 // chips, then a feature-card directory. Owner decision: NO financial/data cards
-// on home — net-worth, allocation donut, subsidiaries and "Sinyal Hari Ini" all
-// stay on disk (signals-card.tsx + office queries) but are NOT rendered here.
+// on home — net-worth, allocation, subsidiaries live in their own slices only.
 // MOBILE (<md): MobileHome (simpler app-grid launcher). DESKTOP (md+): Launcher.
 // RBAC is applied inside each via canAccess(role, slug); the shell blocks render
 // until role resolves, but we still guard here.

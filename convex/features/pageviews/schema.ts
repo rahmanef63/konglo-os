@@ -30,6 +30,5 @@ export const pageviewTables = {
     properties: v.optional(v.string()), // JSON string, capped, for custom events
     at: v.number(),
   })
-    .index("by_at", ["at"])
-    .index("by_path_at", ["path", "at"]),
+    .index("by_at", ["at"]),
 };

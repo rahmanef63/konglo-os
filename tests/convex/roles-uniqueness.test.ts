@@ -1,25 +1,8 @@
-import { convexTest } from "convex-test";
 import { describe, it, expect } from "vitest";
 import { api } from "../../convex/_generated/api";
-import schema from "../../convex/schema";
 import type { Id } from "../../convex/_generated/dataModel";
+import { makeT } from "./_harness";
 
-// Scoped type for Vite's import.meta.glob (vite/client types aren't in tsconfig).
-// Same local shim as authz.test.ts — kept local so it never leaks globally.
-interface GlobImportMeta extends ImportMeta {
-  glob(pattern: string): Record<string, () => Promise<unknown>>;
-}
-
-// convex-test resolves the function-module root from these paths; the glob MUST
-// reach into convex/_generated (it splits a matched path on "_generated").
-// Same pattern as authz.test.ts — auto-includes every feature module.
-const modules = (import.meta as GlobImportMeta).glob(
-  "../../convex/**/!(*.d).{js,ts}",
-);
-
-function makeT() {
-  return convexTest(schema, modules);
-}
 // Schema-bound instance type — keeps ctx.db typed to OUR tables (so the roles
 // by_user index resolves) instead of falling back to the system-table surface.
 type TestT = ReturnType<typeof makeT>;

@@ -1,40 +1,13 @@
-import { convexTest } from "convex-test";
 import { describe, it, expect } from "vitest";
 import { api } from "../../convex/_generated/api";
-import schema from "../../convex/schema";
-import type { Role } from "../../lib/roles";
+import { makeT, seedUser } from "./_harness";
 
-// P5-A data-integrity edge tests. Mirrors authz.test.ts harness (same glob +
-// impersonation). Asserts the MUTATION-boundary guards added in notiondb /
+// P5-A data-integrity edge tests (shared ./_harness glob + impersonation).
+// Asserts the MUTATION-boundary guards added in notiondb /
 // subsidiaries / contacts: per-column type + enum validation, race-safe slug
 // (distinct, no duplicate), and numeric range rejection. Schema validators stay
 // permissive (deploy-safe) — every reject below comes from the handler, not the
 // schema. cfo holds data-studio, so it's a valid writer for the business tables.
-
-interface GlobImportMeta extends ImportMeta {
-  glob(pattern: string): Record<string, () => Promise<unknown>>;
-}
-
-const modules = (import.meta as GlobImportMeta).glob(
-  "../../convex/**/!(*.d).{js,ts}",
-);
-
-async function seedUser(
-  t: ReturnType<typeof convexTest>,
-  role: Role | null,
-  email: string,
-) {
-  const userId = await t.run(async (ctx) => {
-    const id = await ctx.db.insert("users", { email });
-    if (role) await ctx.db.insert("roles", { userId: id, role });
-    return id;
-  });
-  return t.withIdentity({ subject: `${userId}|testsession` });
-}
-
-function makeT() {
-  return convexTest(schema, modules);
-}
 
 // A valid contacts row (tier/warmth are the only `select` columns in the
 // registry; their options come straight from registry.ts).

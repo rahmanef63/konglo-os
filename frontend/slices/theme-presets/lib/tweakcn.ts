@@ -6,7 +6,7 @@
  *   applyTweakcnPreset / previewTweakcnPreset / restoreTweakcnPreset
  *   getSavedTweakcnPreset / clearTweakcnPreset / bootTweakcnPreset
  *   loadTweakcnRegistry / findTweakcnPreset / tweakcnSwatches
- *   groupTweakcnPresets / TWEAKCN_PRESET_GROUPS / HIDDEN_PRESETS
+ *   groupTweakcnPresets / TWEAKCN_PRESET_GROUPS
  *
  * ⚠ HOST GLOBALS.CSS CONTRACT — READ HOST-SETUP.md
  *
@@ -52,4 +52,4 @@ export {
   getSavedTweakcnPreset, clearTweakcnPreset, bootTweakcnPreset,
 } from "./tweakcn/apply";
 
-export { TWEAKCN_PRESET_GROUPS, groupTweakcnPresets, HIDDEN_PRESETS } from "./tweakcn/groups";
+export { TWEAKCN_PRESET_GROUPS, groupTweakcnPresets } from "./tweakcn/groups";

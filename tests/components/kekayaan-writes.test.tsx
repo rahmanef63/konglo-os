@@ -12,16 +12,6 @@ import "@testing-library/jest-dom/vitest";
 // `api` from _generated is `anyApi` — a proxy returning a *fresh* object per read,
 // so we discriminate by getFunctionName() suffix, not reference identity.
 
-// ReactMutation is a callable carrying `.withOptimisticUpdate` (chainable). The
-// hook calls .withOptimisticUpdate on upsertAllocation + removeAllocation, so the
-// mocks MUST expose it (returning the same callable) or the hook throws.
-function mockMutation() {
-  const fn = vi.fn() as ReturnType<typeof vi.fn> & {
-    withOptimisticUpdate: (u: unknown) => typeof fn;
-  };
-  return Object.assign(fn, { withOptimisticUpdate: () => fn });
-}
-
 const setFigures = mockMutation();
 const upsert = mockMutation();
 const remove = mockMutation();
@@ -36,13 +26,12 @@ vi.mock("convex/react", () => ({ useMutation: (r: unknown) => useMutation(r) }))
 
 const toast = vi.fn();
 const log = vi.fn();
-vi.mock("../../frontend/shared", () => ({
-  useToast: () => toast,
-  useActivityLog: () => log,
-  isConflict: (e: unknown) => e instanceof Error && /conflict/i.test(e.message),
-}));
+vi.mock("../../frontend/shared", async () =>
+  (await import("./_writes-harness")).sharedMock(() => toast, () => log),
+);
 
 import { useKekayaanWrites } from "../../frontend/slices/kekayaan-kas/writes";
+import { mockMutation } from "./_writes-harness";
 
 describe("useKekayaanWrites", () => {
   beforeEach(() => {

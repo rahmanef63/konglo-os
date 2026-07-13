@@ -15,17 +15,6 @@ import "@testing-library/jest-dom/vitest";
 // property read, so we discriminate mutations by getFunctionName() (stable
 // "features/family/mutations:createHeir" path), not reference identity.
 
-// The real ReactMutation is a *callable* that also carries `.withOptimisticUpdate`.
-// Even though useHeirWrites doesn't currently register one, mirror the proven
-// harness so the mock is a callable carrying that chainable method — keeps the
-// test resilient if optimistic updates are added later.
-function mockMutation() {
-  const fn = vi.fn() as ReturnType<typeof vi.fn> & {
-    withOptimisticUpdate: (u: unknown) => typeof fn;
-  };
-  return Object.assign(fn, { withOptimisticUpdate: () => fn });
-}
-
 const create = mockMutation();
 const update = mockMutation();
 const remove = mockMutation();
@@ -40,13 +29,13 @@ vi.mock("convex/react", () => ({ useMutation: (r: unknown) => useMutation(r) }))
 
 const toast = vi.fn();
 const log = vi.fn();
-vi.mock("../../frontend/shared", () => ({
-  useToast: () => toast,
-  useActivityLog: () => log,
-}));
+vi.mock("../../frontend/shared", async () =>
+  (await import("./_writes-harness")).sharedMock(() => toast, () => log),
+);
 
 import { useHeirWrites } from "../../frontend/slices/keluarga-warisan/writes";
 import type { Id } from "../../convex/_generated/dataModel";
+import { mockMutation } from "./_writes-harness";
 
 describe("useHeirWrites", () => {
   beforeEach(() => {

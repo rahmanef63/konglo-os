@@ -5,16 +5,7 @@
   "items": [
     {
       "name": "modern-minimal",
-      "type": "registry:style",
       "title": "Modern Minimal",
-      "description": "A theme based on the Modern Minimal color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Inter, sans-serif",
@@ -140,16 +131,7 @@
     },
     {
       "name": "t3-chat",
-      "type": "registry:style",
       "title": "T3 Chat",
-      "description": "A theme based on the T3 Chat color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -275,16 +257,7 @@
     },
     {
       "name": "twitter",
-      "type": "registry:style",
       "title": "Twitter",
-      "description": "A theme based on the Twitter color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Open Sans, sans-serif",
@@ -410,16 +383,7 @@
     },
     {
       "name": "mocha-mousse",
-      "type": "registry:style",
       "title": "Mocha Mousse",
-      "description": "A theme based on the Mocha Mousse color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "DM Sans, sans-serif",
@@ -544,287 +508,8 @@
       }
     },
     {
-      "name": "bubblegum",
-      "type": "registry:style",
-      "title": "Bubblegum",
-      "description": "A theme based on the Bubblegum color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
-      "cssVars": {
-        "theme": {
-          "font-sans": "Poppins, sans-serif",
-          "font-mono": "Fira Code, monospace",
-          "font-serif": "Lora, serif",
-          "radius": "0.4rem",
-          "tracking-tighter": "calc(var(--tracking-normal) - 0.05em)",
-          "tracking-tight": "calc(var(--tracking-normal) - 0.025em)",
-          "tracking-wide": "calc(var(--tracking-normal) + 0.025em)",
-          "tracking-wider": "calc(var(--tracking-normal) + 0.05em)",
-          "tracking-widest": "calc(var(--tracking-normal) + 0.1em)"
-        },
-        "light": {
-          "background": "oklch(0.94 0.02 345.70)",
-          "foreground": "oklch(0.47 0 0)",
-          "card": "oklch(0.95 0.05 86.89)",
-          "card-foreground": "oklch(0.47 0 0)",
-          "popover": "oklch(1.00 0 0)",
-          "popover-foreground": "oklch(0.47 0 0)",
-          "primary": "oklch(0.62 0.18 348.14)",
-          "primary-foreground": "oklch(1.00 0 0)",
-          "secondary": "oklch(0.81 0.07 198.19)",
-          "secondary-foreground": "oklch(0.32 0 0)",
-          "muted": "oklch(0.88 0.05 212.10)",
-          "muted-foreground": "oklch(0.58 0 0)",
-          "accent": "oklch(0.92 0.08 87.67)",
-          "accent-foreground": "oklch(0.32 0 0)",
-          "destructive": "oklch(0.71 0.17 21.96)",
-          "destructive-foreground": "oklch(1.00 0 0)",
-          "border": "oklch(0.62 0.18 348.14)",
-          "input": "oklch(0.92 0 0)",
-          "ring": "oklch(0.70 0.16 350.75)",
-          "chart-1": "oklch(0.70 0.16 350.75)",
-          "chart-2": "oklch(0.82 0.08 212.09)",
-          "chart-3": "oklch(0.92 0.08 87.67)",
-          "chart-4": "oklch(0.80 0.11 348.18)",
-          "chart-5": "oklch(0.62 0.19 353.91)",
-          "radius": "0.4rem",
-          "sidebar": "oklch(0.91 0.04 343.09)",
-          "sidebar-foreground": "oklch(0.32 0 0)",
-          "sidebar-primary": "oklch(0.66 0.21 354.31)",
-          "sidebar-primary-foreground": "oklch(1.00 0 0)",
-          "sidebar-accent": "oklch(0.82 0.11 346.02)",
-          "sidebar-accent-foreground": "oklch(0.32 0 0)",
-          "sidebar-border": "oklch(0.95 0.03 307.17)",
-          "sidebar-ring": "oklch(0.66 0.21 354.31)",
-          "font-sans": "Poppins, sans-serif",
-          "font-serif": "Lora, serif",
-          "font-mono": "Fira Code, monospace",
-          "shadow-color": "hsl(325.78 58.18% 56.86% / 0.5)",
-          "shadow-opacity": "1.0",
-          "shadow-blur": "0px",
-          "shadow-spread": "0px",
-          "shadow-offset-x": "3px",
-          "shadow-offset-y": "3px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "3px 3px 0px 0px hsl(325.78 58.18% 56.86% / 0.50)",
-          "shadow-xs": "3px 3px 0px 0px hsl(325.78 58.18% 56.86% / 0.50)",
-          "shadow-sm": "3px 3px 0px 0px hsl(325.78 58.18% 56.86% / 1.00), 3px 1px 2px -1px hsl(325.78 58.18% 56.86% / 1.00)",
-          "shadow": "3px 3px 0px 0px hsl(325.78 58.18% 56.86% / 1.00), 3px 1px 2px -1px hsl(325.78 58.18% 56.86% / 1.00)",
-          "shadow-md": "3px 3px 0px 0px hsl(325.78 58.18% 56.86% / 1.00), 3px 2px 4px -1px hsl(325.78 58.18% 56.86% / 1.00)",
-          "shadow-lg": "3px 3px 0px 0px hsl(325.78 58.18% 56.86% / 1.00), 3px 4px 6px -1px hsl(325.78 58.18% 56.86% / 1.00)",
-          "shadow-xl": "3px 3px 0px 0px hsl(325.78 58.18% 56.86% / 1.00), 3px 8px 10px -1px hsl(325.78 58.18% 56.86% / 1.00)",
-          "shadow-2xl": "3px 3px 0px 0px hsl(325.78 58.18% 56.86% / 2.50)",
-          "tracking-normal": "0em"
-        },
-        "dark": {
-          "background": "oklch(0.25 0.03 234.16)",
-          "foreground": "oklch(0.93 0.02 349.08)",
-          "card": "oklch(0.29 0.03 233.54)",
-          "card-foreground": "oklch(0.93 0.02 349.08)",
-          "popover": "oklch(0.29 0.03 233.54)",
-          "popover-foreground": "oklch(0.93 0.02 349.08)",
-          "primary": "oklch(0.92 0.08 87.67)",
-          "primary-foreground": "oklch(0.25 0.03 234.16)",
-          "secondary": "oklch(0.78 0.08 4.13)",
-          "secondary-foreground": "oklch(0.25 0.03 234.16)",
-          "muted": "oklch(0.27 0.01 255.58)",
-          "muted-foreground": "oklch(0.78 0.08 4.13)",
-          "accent": "oklch(0.67 0.10 356.98)",
-          "accent-foreground": "oklch(0.93 0.02 349.08)",
-          "destructive": "oklch(0.67 0.18 350.36)",
-          "destructive-foreground": "oklch(0.25 0.03 234.16)",
-          "border": "oklch(0.39 0.04 242.22)",
-          "input": "oklch(0.31 0.03 232.00)",
-          "ring": "oklch(0.70 0.09 201.87)",
-          "chart-1": "oklch(0.70 0.09 201.87)",
-          "chart-2": "oklch(0.78 0.08 4.13)",
-          "chart-3": "oklch(0.67 0.10 356.98)",
-          "chart-4": "oklch(0.44 0.07 217.08)",
-          "chart-5": "oklch(0.27 0.01 255.58)",
-          "radius": "0.4rem",
-          "sidebar": "oklch(0.23 0.03 235.97)",
-          "sidebar-foreground": "oklch(0.97 0.00 264.54)",
-          "sidebar-primary": "oklch(0.66 0.21 354.31)",
-          "sidebar-primary-foreground": "oklch(1.00 0 0)",
-          "sidebar-accent": "oklch(0.82 0.11 346.02)",
-          "sidebar-accent-foreground": "oklch(0.28 0.03 256.85)",
-          "sidebar-border": "oklch(0.37 0.03 259.73)",
-          "sidebar-ring": "oklch(0.66 0.21 354.31)",
-          "font-sans": "Poppins, sans-serif",
-          "font-serif": "Lora, serif",
-          "font-mono": "Fira Code, monospace",
-          "shadow-color": "#324859",
-          "shadow-opacity": "1.0",
-          "shadow-blur": "0px",
-          "shadow-spread": "0px",
-          "shadow-offset-x": "3px",
-          "shadow-offset-y": "3px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "3px 3px 0px 0px hsl(206.15 28.06% 27.25% / 0.50)",
-          "shadow-xs": "3px 3px 0px 0px hsl(206.15 28.06% 27.25% / 0.50)",
-          "shadow-sm": "3px 3px 0px 0px hsl(206.15 28.06% 27.25% / 1.00), 3px 1px 2px -1px hsl(206.15 28.06% 27.25% / 1.00)",
-          "shadow": "3px 3px 0px 0px hsl(206.15 28.06% 27.25% / 1.00), 3px 1px 2px -1px hsl(206.15 28.06% 27.25% / 1.00)",
-          "shadow-md": "3px 3px 0px 0px hsl(206.15 28.06% 27.25% / 1.00), 3px 2px 4px -1px hsl(206.15 28.06% 27.25% / 1.00)",
-          "shadow-lg": "3px 3px 0px 0px hsl(206.15 28.06% 27.25% / 1.00), 3px 4px 6px -1px hsl(206.15 28.06% 27.25% / 1.00)",
-          "shadow-xl": "3px 3px 0px 0px hsl(206.15 28.06% 27.25% / 1.00), 3px 8px 10px -1px hsl(206.15 28.06% 27.25% / 1.00)",
-          "shadow-2xl": "3px 3px 0px 0px hsl(206.15 28.06% 27.25% / 2.50)"
-        }
-      }
-    },
-    {
-      "name": "doom-64",
-      "type": "registry:style",
-      "title": "Doom 64",
-      "description": "A theme based on the Doom 64 color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
-      "cssVars": {
-        "theme": {
-          "font-sans": "\"Oxanium\", sans-serif",
-          "font-mono": "\"Source Code Pro\", monospace",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "radius": "0px",
-          "tracking-tighter": "calc(var(--tracking-normal) - 0.05em)",
-          "tracking-tight": "calc(var(--tracking-normal) - 0.025em)",
-          "tracking-wide": "calc(var(--tracking-normal) + 0.025em)",
-          "tracking-wider": "calc(var(--tracking-normal) + 0.05em)",
-          "tracking-widest": "calc(var(--tracking-normal) + 0.1em)"
-        },
-        "light": {
-          "background": "oklch(0.85 0 0)",
-          "foreground": "oklch(0.24 0 0)",
-          "card": "oklch(0.76 0 0)",
-          "card-foreground": "oklch(0.24 0 0)",
-          "popover": "oklch(0.76 0 0)",
-          "popover-foreground": "oklch(0.24 0 0)",
-          "primary": "oklch(0.50 0.19 27.48)",
-          "primary-foreground": "oklch(1.00 0 0)",
-          "secondary": "oklch(0.50 0.09 126.19)",
-          "secondary-foreground": "oklch(1.00 0 0)",
-          "muted": "oklch(0.78 0 0)",
-          "muted-foreground": "oklch(0.41 0 0)",
-          "accent": "oklch(0.59 0.10 245.74)",
-          "accent-foreground": "oklch(1.00 0 0)",
-          "destructive": "oklch(0.71 0.20 46.46)",
-          "destructive-foreground": "oklch(0 0 0)",
-          "border": "oklch(0.43 0 0)",
-          "input": "oklch(0.43 0 0)",
-          "ring": "oklch(0.50 0.19 27.48)",
-          "chart-1": "oklch(0.50 0.19 27.48)",
-          "chart-2": "oklch(0.50 0.09 126.19)",
-          "chart-3": "oklch(0.59 0.10 245.74)",
-          "chart-4": "oklch(0.71 0.20 46.46)",
-          "chart-5": "oklch(0.57 0.04 40.43)",
-          "radius": "0px",
-          "sidebar": "oklch(0.76 0 0)",
-          "sidebar-foreground": "oklch(0.24 0 0)",
-          "sidebar-primary": "oklch(0.50 0.19 27.48)",
-          "sidebar-primary-foreground": "oklch(1.00 0 0)",
-          "sidebar-accent": "oklch(0.59 0.10 245.74)",
-          "sidebar-accent-foreground": "oklch(1.00 0 0)",
-          "sidebar-border": "oklch(0.43 0 0)",
-          "sidebar-ring": "oklch(0.50 0.19 27.48)",
-          "font-sans": "\"Oxanium\", sans-serif",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "font-mono": "\"Source Code Pro\", monospace",
-          "shadow-color": "hsl(0 0% 0%)",
-          "shadow-opacity": "0.4",
-          "shadow-blur": "4px",
-          "shadow-spread": "0px",
-          "shadow-offset-x": "0px",
-          "shadow-offset-y": "2px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "0px 2px 4px 0px hsl(0 0% 0% / 0.20)",
-          "shadow-xs": "0px 2px 4px 0px hsl(0 0% 0% / 0.20)",
-          "shadow-sm": "0px 2px 4px 0px hsl(0 0% 0% / 0.40), 0px 1px 2px -1px hsl(0 0% 0% / 0.40)",
-          "shadow": "0px 2px 4px 0px hsl(0 0% 0% / 0.40), 0px 1px 2px -1px hsl(0 0% 0% / 0.40)",
-          "shadow-md": "0px 2px 4px 0px hsl(0 0% 0% / 0.40), 0px 2px 4px -1px hsl(0 0% 0% / 0.40)",
-          "shadow-lg": "0px 2px 4px 0px hsl(0 0% 0% / 0.40), 0px 4px 6px -1px hsl(0 0% 0% / 0.40)",
-          "shadow-xl": "0px 2px 4px 0px hsl(0 0% 0% / 0.40), 0px 8px 10px -1px hsl(0 0% 0% / 0.40)",
-          "shadow-2xl": "0px 2px 4px 0px hsl(0 0% 0% / 1.00)",
-          "tracking-normal": "0em"
-        },
-        "dark": {
-          "background": "oklch(0.22 0 0)",
-          "foreground": "oklch(0.91 0 0)",
-          "card": "oklch(0.29 0 0)",
-          "card-foreground": "oklch(0.91 0 0)",
-          "popover": "oklch(0.29 0 0)",
-          "popover-foreground": "oklch(0.91 0 0)",
-          "primary": "oklch(0.61 0.21 27.03)",
-          "primary-foreground": "oklch(1.00 0 0)",
-          "secondary": "oklch(0.64 0.15 133.01)",
-          "secondary-foreground": "oklch(0 0 0)",
-          "muted": "oklch(0.26 0 0)",
-          "muted-foreground": "oklch(0.71 0 0)",
-          "accent": "oklch(0.75 0.12 244.75)",
-          "accent-foreground": "oklch(0 0 0)",
-          "destructive": "oklch(0.78 0.17 68.09)",
-          "destructive-foreground": "oklch(0 0 0)",
-          "border": "oklch(0.41 0 0)",
-          "input": "oklch(0.41 0 0)",
-          "ring": "oklch(0.61 0.21 27.03)",
-          "chart-1": "oklch(0.61 0.21 27.03)",
-          "chart-2": "oklch(0.64 0.15 133.01)",
-          "chart-3": "oklch(0.75 0.12 244.75)",
-          "chart-4": "oklch(0.78 0.17 68.09)",
-          "chart-5": "oklch(0.65 0.03 40.80)",
-          "radius": "0px",
-          "sidebar": "oklch(0.19 0 0)",
-          "sidebar-foreground": "oklch(0.91 0 0)",
-          "sidebar-primary": "oklch(0.61 0.21 27.03)",
-          "sidebar-primary-foreground": "oklch(1.00 0 0)",
-          "sidebar-accent": "oklch(0.75 0.12 244.75)",
-          "sidebar-accent-foreground": "oklch(0 0 0)",
-          "sidebar-border": "oklch(0.41 0 0)",
-          "sidebar-ring": "oklch(0.61 0.21 27.03)",
-          "font-sans": "\"Oxanium\", sans-serif",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "font-mono": "\"Source Code Pro\", monospace",
-          "shadow-color": "hsl(0 0% 0%)",
-          "shadow-opacity": "0.6",
-          "shadow-blur": "5px",
-          "shadow-spread": "0px",
-          "shadow-offset-x": "0px",
-          "shadow-offset-y": "2px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "0px 2px 5px 0px hsl(0 0% 0% / 0.30)",
-          "shadow-xs": "0px 2px 5px 0px hsl(0 0% 0% / 0.30)",
-          "shadow-sm": "0px 2px 5px 0px hsl(0 0% 0% / 0.60), 0px 1px 2px -1px hsl(0 0% 0% / 0.60)",
-          "shadow": "0px 2px 5px 0px hsl(0 0% 0% / 0.60), 0px 1px 2px -1px hsl(0 0% 0% / 0.60)",
-          "shadow-md": "0px 2px 5px 0px hsl(0 0% 0% / 0.60), 0px 2px 4px -1px hsl(0 0% 0% / 0.60)",
-          "shadow-lg": "0px 2px 5px 0px hsl(0 0% 0% / 0.60), 0px 4px 6px -1px hsl(0 0% 0% / 0.60)",
-          "shadow-xl": "0px 2px 5px 0px hsl(0 0% 0% / 0.60), 0px 8px 10px -1px hsl(0 0% 0% / 0.60)",
-          "shadow-2xl": "0px 2px 5px 0px hsl(0 0% 0% / 1.50)"
-        }
-      }
-    },
-    {
       "name": "catppuccin",
-      "type": "registry:style",
       "title": "Catppuccin",
-      "description": "A theme based on the Catppuccin color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Montserrat, sans-serif",
@@ -950,16 +635,7 @@
     },
     {
       "name": "graphite",
-      "type": "registry:style",
       "title": "Graphite",
-      "description": "A theme based on the Graphite color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Inter, sans-serif",
@@ -1085,16 +761,7 @@
     },
     {
       "name": "perpetuity",
-      "type": "registry:style",
       "title": "Perpetuity",
-      "description": "A theme based on the Perpetuity color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Source Code Pro, monospace",
@@ -1220,16 +887,7 @@
     },
     {
       "name": "kodama-grove",
-      "type": "registry:style",
       "title": "Kodama Grove",
-      "description": "A theme based on the Kodama Grove color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Merriweather, serif",
@@ -1355,16 +1013,7 @@
     },
     {
       "name": "cosmic-night",
-      "type": "registry:style",
       "title": "Cosmic Night",
-      "description": "A theme based on the Cosmic Night color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Inter, sans-serif",
@@ -1490,16 +1139,7 @@
     },
     {
       "name": "tangerine",
-      "type": "registry:style",
       "title": "Tangerine",
-      "description": "A theme based on the Tangerine color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Inter, sans-serif",
@@ -1625,16 +1265,7 @@
     },
     {
       "name": "quantum-rose",
-      "type": "registry:style",
       "title": "Quantum Rose",
-      "description": "A theme based on the Quantum Rose color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Quicksand, sans-serif",
@@ -1760,16 +1391,7 @@
     },
     {
       "name": "nature",
-      "type": "registry:style",
       "title": "Nature",
-      "description": "A theme based on the Nature color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Montserrat, sans-serif",
@@ -1895,16 +1517,7 @@
     },
     {
       "name": "bold-tech",
-      "type": "registry:style",
       "title": "Bold Tech",
-      "description": "A theme based on the Bold Tech color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Roboto, sans-serif",
@@ -2030,16 +1643,7 @@
     },
     {
       "name": "elegant-luxury",
-      "type": "registry:style",
       "title": "Elegant Luxury",
-      "description": "A theme based on the Elegant Luxury color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Poppins, sans-serif",
@@ -2165,16 +1769,7 @@
     },
     {
       "name": "amber-minimal",
-      "type": "registry:style",
       "title": "Amber Minimal",
-      "description": "A theme based on the Amber Minimal color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Inter, sans-serif",
@@ -2300,16 +1895,7 @@
     },
     {
       "name": "supabase",
-      "type": "registry:style",
       "title": "Supabase",
-      "description": "A theme based on the Supabase color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Outfit, sans-serif",
@@ -2434,152 +2020,8 @@
       }
     },
     {
-      "name": "neo-brutalism",
-      "type": "registry:style",
-      "title": "Neo Brutalism",
-      "description": "A theme based on the Neo Brutalism color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
-      "cssVars": {
-        "theme": {
-          "font-sans": "DM Sans, sans-serif",
-          "font-mono": "Space Mono, monospace",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "radius": "0px",
-          "tracking-tighter": "calc(var(--tracking-normal) - 0.05em)",
-          "tracking-tight": "calc(var(--tracking-normal) - 0.025em)",
-          "tracking-wide": "calc(var(--tracking-normal) + 0.025em)",
-          "tracking-wider": "calc(var(--tracking-normal) + 0.05em)",
-          "tracking-widest": "calc(var(--tracking-normal) + 0.1em)"
-        },
-        "light": {
-          "background": "oklch(1.00 0 0)",
-          "foreground": "oklch(0 0 0)",
-          "card": "oklch(1.00 0 0)",
-          "card-foreground": "oklch(0 0 0)",
-          "popover": "oklch(1.00 0 0)",
-          "popover-foreground": "oklch(0 0 0)",
-          "primary": "oklch(0.65 0.24 26.97)",
-          "primary-foreground": "oklch(1.00 0 0)",
-          "secondary": "oklch(0.97 0.21 109.77)",
-          "secondary-foreground": "oklch(0 0 0)",
-          "muted": "oklch(0.96 0 0)",
-          "muted-foreground": "oklch(0.32 0 0)",
-          "accent": "oklch(0.56 0.24 260.82)",
-          "accent-foreground": "oklch(1.00 0 0)",
-          "destructive": "oklch(0 0 0)",
-          "destructive-foreground": "oklch(1.00 0 0)",
-          "border": "oklch(0 0 0)",
-          "input": "oklch(0 0 0)",
-          "ring": "oklch(0.65 0.24 26.97)",
-          "chart-1": "oklch(0.65 0.24 26.97)",
-          "chart-2": "oklch(0.97 0.21 109.77)",
-          "chart-3": "oklch(0.56 0.24 260.82)",
-          "chart-4": "oklch(0.73 0.25 142.50)",
-          "chart-5": "oklch(0.59 0.27 328.36)",
-          "radius": "0px",
-          "sidebar": "oklch(0.96 0 0)",
-          "sidebar-foreground": "oklch(0 0 0)",
-          "sidebar-primary": "oklch(0.65 0.24 26.97)",
-          "sidebar-primary-foreground": "oklch(1.00 0 0)",
-          "sidebar-accent": "oklch(0.56 0.24 260.82)",
-          "sidebar-accent-foreground": "oklch(1.00 0 0)",
-          "sidebar-border": "oklch(0 0 0)",
-          "sidebar-ring": "oklch(0.65 0.24 26.97)",
-          "font-sans": "DM Sans, sans-serif",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "font-mono": "Space Mono, monospace",
-          "shadow-color": "hsl(0 0% 0%)",
-          "shadow-opacity": "1",
-          "shadow-blur": "0px",
-          "shadow-spread": "0px",
-          "shadow-offset-x": "4px",
-          "shadow-offset-y": "4px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "4px 4px 0px 0px hsl(0 0% 0% / 0.50)",
-          "shadow-xs": "4px 4px 0px 0px hsl(0 0% 0% / 0.50)",
-          "shadow-sm": "4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 1px 2px -1px hsl(0 0% 0% / 1.00)",
-          "shadow": "4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 1px 2px -1px hsl(0 0% 0% / 1.00)",
-          "shadow-md": "4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 2px 4px -1px hsl(0 0% 0% / 1.00)",
-          "shadow-lg": "4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 4px 6px -1px hsl(0 0% 0% / 1.00)",
-          "shadow-xl": "4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 8px 10px -1px hsl(0 0% 0% / 1.00)",
-          "shadow-2xl": "4px 4px 0px 0px hsl(0 0% 0% / 2.50)",
-          "tracking-normal": "0em"
-        },
-        "dark": {
-          "background": "oklch(0 0 0)",
-          "foreground": "oklch(1.00 0 0)",
-          "card": "oklch(0.32 0 0)",
-          "card-foreground": "oklch(1.00 0 0)",
-          "popover": "oklch(0.32 0 0)",
-          "popover-foreground": "oklch(1.00 0 0)",
-          "primary": "oklch(0.70 0.19 23.19)",
-          "primary-foreground": "oklch(0 0 0)",
-          "secondary": "oklch(0.97 0.20 109.62)",
-          "secondary-foreground": "oklch(0 0 0)",
-          "muted": "oklch(0.32 0 0)",
-          "muted-foreground": "oklch(0.85 0 0)",
-          "accent": "oklch(0.68 0.18 252.26)",
-          "accent-foreground": "oklch(0 0 0)",
-          "destructive": "oklch(1.00 0 0)",
-          "destructive-foreground": "oklch(0 0 0)",
-          "border": "oklch(1.00 0 0)",
-          "input": "oklch(1.00 0 0)",
-          "ring": "oklch(0.70 0.19 23.19)",
-          "chart-1": "oklch(0.70 0.19 23.19)",
-          "chart-2": "oklch(0.97 0.20 109.62)",
-          "chart-3": "oklch(0.68 0.18 252.26)",
-          "chart-4": "oklch(0.74 0.23 142.85)",
-          "chart-5": "oklch(0.61 0.25 328.07)",
-          "radius": "0px",
-          "sidebar": "oklch(0 0 0)",
-          "sidebar-foreground": "oklch(1.00 0 0)",
-          "sidebar-primary": "oklch(0.70 0.19 23.19)",
-          "sidebar-primary-foreground": "oklch(0 0 0)",
-          "sidebar-accent": "oklch(0.68 0.18 252.26)",
-          "sidebar-accent-foreground": "oklch(0 0 0)",
-          "sidebar-border": "oklch(1.00 0 0)",
-          "sidebar-ring": "oklch(0.70 0.19 23.19)",
-          "font-sans": "DM Sans, sans-serif",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "font-mono": "Space Mono, monospace",
-          "shadow-color": "hsl(0 0% 0%)",
-          "shadow-opacity": "1",
-          "shadow-blur": "0px",
-          "shadow-spread": "0px",
-          "shadow-offset-x": "4px",
-          "shadow-offset-y": "4px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "4px 4px 0px 0px hsl(0 0% 0% / 0.50)",
-          "shadow-xs": "4px 4px 0px 0px hsl(0 0% 0% / 0.50)",
-          "shadow-sm": "4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 1px 2px -1px hsl(0 0% 0% / 1.00)",
-          "shadow": "4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 1px 2px -1px hsl(0 0% 0% / 1.00)",
-          "shadow-md": "4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 2px 4px -1px hsl(0 0% 0% / 1.00)",
-          "shadow-lg": "4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 4px 6px -1px hsl(0 0% 0% / 1.00)",
-          "shadow-xl": "4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 8px 10px -1px hsl(0 0% 0% / 1.00)",
-          "shadow-2xl": "4px 4px 0px 0px hsl(0 0% 0% / 2.50)"
-        }
-      }
-    },
-    {
       "name": "solar-dusk",
-      "type": "registry:style",
       "title": "Solar Dusk",
-      "description": "A theme based on the Solar Dusk color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Oxanium, sans-serif",
@@ -2705,16 +2147,7 @@
     },
     {
       "name": "claymorphism",
-      "type": "registry:style",
       "title": "Claymorphism",
-      "description": "A theme based on the Claymorphism color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Plus Jakarta Sans, sans-serif",
@@ -2839,287 +2272,8 @@
       }
     },
     {
-      "name": "cyberpunk",
-      "type": "registry:style",
-      "title": "Cyberpunk",
-      "description": "A theme based on the Cyberpunk color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
-      "cssVars": {
-        "theme": {
-          "font-sans": "Outfit, sans-serif",
-          "font-mono": "Fira Code, monospace",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "radius": "0.5rem",
-          "tracking-tighter": "calc(var(--tracking-normal) - 0.05em)",
-          "tracking-tight": "calc(var(--tracking-normal) - 0.025em)",
-          "tracking-wide": "calc(var(--tracking-normal) + 0.025em)",
-          "tracking-wider": "calc(var(--tracking-normal) + 0.05em)",
-          "tracking-widest": "calc(var(--tracking-normal) + 0.1em)"
-        },
-        "light": {
-          "background": "oklch(0.98 0.00 247.84)",
-          "foreground": "oklch(0.16 0.04 281.83)",
-          "card": "oklch(1.00 0 0)",
-          "card-foreground": "oklch(0.16 0.04 281.83)",
-          "popover": "oklch(1.00 0 0)",
-          "popover-foreground": "oklch(0.16 0.04 281.83)",
-          "primary": "oklch(0.67 0.29 341.41)",
-          "primary-foreground": "oklch(1.00 0 0)",
-          "secondary": "oklch(0.96 0.02 286.02)",
-          "secondary-foreground": "oklch(0.16 0.04 281.83)",
-          "muted": "oklch(0.96 0.02 286.02)",
-          "muted-foreground": "oklch(0.16 0.04 281.83)",
-          "accent": "oklch(0.89 0.17 171.27)",
-          "accent-foreground": "oklch(0.16 0.04 281.83)",
-          "destructive": "oklch(0.65 0.23 34.04)",
-          "destructive-foreground": "oklch(1.00 0 0)",
-          "border": "oklch(0.92 0.01 225.09)",
-          "input": "oklch(0.92 0.01 225.09)",
-          "ring": "oklch(0.67 0.29 341.41)",
-          "chart-1": "oklch(0.67 0.29 341.41)",
-          "chart-2": "oklch(0.55 0.29 299.10)",
-          "chart-3": "oklch(0.84 0.15 209.29)",
-          "chart-4": "oklch(0.89 0.17 171.27)",
-          "chart-5": "oklch(0.92 0.19 101.41)",
-          "radius": "0.5rem",
-          "sidebar": "oklch(0.96 0.02 286.02)",
-          "sidebar-foreground": "oklch(0.16 0.04 281.83)",
-          "sidebar-primary": "oklch(0.67 0.29 341.41)",
-          "sidebar-primary-foreground": "oklch(1.00 0 0)",
-          "sidebar-accent": "oklch(0.89 0.17 171.27)",
-          "sidebar-accent-foreground": "oklch(0.16 0.04 281.83)",
-          "sidebar-border": "oklch(0.92 0.01 225.09)",
-          "sidebar-ring": "oklch(0.67 0.29 341.41)",
-          "font-sans": "Outfit, sans-serif",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "font-mono": "Fira Code, monospace",
-          "shadow-color": "hsl(0 0% 0%)",
-          "shadow-opacity": "0.1",
-          "shadow-blur": "8px",
-          "shadow-spread": "-2px",
-          "shadow-offset-x": "0px",
-          "shadow-offset-y": "4px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "0px 4px 8px -2px hsl(0 0% 0% / 0.05)",
-          "shadow-xs": "0px 4px 8px -2px hsl(0 0% 0% / 0.05)",
-          "shadow-sm": "0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 1px 2px -3px hsl(0 0% 0% / 0.10)",
-          "shadow": "0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 1px 2px -3px hsl(0 0% 0% / 0.10)",
-          "shadow-md": "0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 2px 4px -3px hsl(0 0% 0% / 0.10)",
-          "shadow-lg": "0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 4px 6px -3px hsl(0 0% 0% / 0.10)",
-          "shadow-xl": "0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 8px 10px -3px hsl(0 0% 0% / 0.10)",
-          "shadow-2xl": "0px 4px 8px -2px hsl(0 0% 0% / 0.25)",
-          "tracking-normal": "0em"
-        },
-        "dark": {
-          "background": "oklch(0.16 0.04 281.83)",
-          "foreground": "oklch(0.95 0.01 260.73)",
-          "card": "oklch(0.25 0.06 281.14)",
-          "card-foreground": "oklch(0.95 0.01 260.73)",
-          "popover": "oklch(0.25 0.06 281.14)",
-          "popover-foreground": "oklch(0.95 0.01 260.73)",
-          "primary": "oklch(0.67 0.29 341.41)",
-          "primary-foreground": "oklch(1.00 0 0)",
-          "secondary": "oklch(0.25 0.06 281.14)",
-          "secondary-foreground": "oklch(0.95 0.01 260.73)",
-          "muted": "oklch(0.25 0.06 281.14)",
-          "muted-foreground": "oklch(0.62 0.05 278.10)",
-          "accent": "oklch(0.89 0.17 171.27)",
-          "accent-foreground": "oklch(0.16 0.04 281.83)",
-          "destructive": "oklch(0.65 0.23 34.04)",
-          "destructive-foreground": "oklch(1.00 0 0)",
-          "border": "oklch(0.33 0.08 280.79)",
-          "input": "oklch(0.33 0.08 280.79)",
-          "ring": "oklch(0.67 0.29 341.41)",
-          "chart-1": "oklch(0.67 0.29 341.41)",
-          "chart-2": "oklch(0.55 0.29 299.10)",
-          "chart-3": "oklch(0.84 0.15 209.29)",
-          "chart-4": "oklch(0.89 0.17 171.27)",
-          "chart-5": "oklch(0.92 0.19 101.41)",
-          "radius": "0.5rem",
-          "sidebar": "oklch(0.16 0.04 281.83)",
-          "sidebar-foreground": "oklch(0.95 0.01 260.73)",
-          "sidebar-primary": "oklch(0.67 0.29 341.41)",
-          "sidebar-primary-foreground": "oklch(1.00 0 0)",
-          "sidebar-accent": "oklch(0.89 0.17 171.27)",
-          "sidebar-accent-foreground": "oklch(0.16 0.04 281.83)",
-          "sidebar-border": "oklch(0.33 0.08 280.79)",
-          "sidebar-ring": "oklch(0.67 0.29 341.41)",
-          "font-sans": "Outfit, sans-serif",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "font-mono": "Fira Code, monospace",
-          "shadow-color": "hsl(0 0% 0%)",
-          "shadow-opacity": "0.1",
-          "shadow-blur": "8px",
-          "shadow-spread": "-2px",
-          "shadow-offset-x": "0px",
-          "shadow-offset-y": "4px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "0px 4px 8px -2px hsl(0 0% 0% / 0.05)",
-          "shadow-xs": "0px 4px 8px -2px hsl(0 0% 0% / 0.05)",
-          "shadow-sm": "0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 1px 2px -3px hsl(0 0% 0% / 0.10)",
-          "shadow": "0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 1px 2px -3px hsl(0 0% 0% / 0.10)",
-          "shadow-md": "0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 2px 4px -3px hsl(0 0% 0% / 0.10)",
-          "shadow-lg": "0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 4px 6px -3px hsl(0 0% 0% / 0.10)",
-          "shadow-xl": "0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 8px 10px -3px hsl(0 0% 0% / 0.10)",
-          "shadow-2xl": "0px 4px 8px -2px hsl(0 0% 0% / 0.25)"
-        }
-      }
-    },
-    {
-      "name": "pastel-dreams",
-      "type": "registry:style",
-      "title": "Pastel Dreams",
-      "description": "A theme based on the Pastel Dreams color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
-      "cssVars": {
-        "theme": {
-          "font-sans": "Open Sans, sans-serif",
-          "font-mono": "IBM Plex Mono, monospace",
-          "font-serif": "Source Serif 4, serif",
-          "radius": "1.5rem",
-          "tracking-tighter": "calc(var(--tracking-normal) - 0.05em)",
-          "tracking-tight": "calc(var(--tracking-normal) - 0.025em)",
-          "tracking-wide": "calc(var(--tracking-normal) + 0.025em)",
-          "tracking-wider": "calc(var(--tracking-normal) + 0.05em)",
-          "tracking-widest": "calc(var(--tracking-normal) + 0.1em)"
-        },
-        "light": {
-          "background": "oklch(0.97 0.01 314.78)",
-          "foreground": "oklch(0.37 0.03 259.73)",
-          "card": "oklch(1.00 0 0)",
-          "card-foreground": "oklch(0.37 0.03 259.73)",
-          "popover": "oklch(1.00 0 0)",
-          "popover-foreground": "oklch(0.37 0.03 259.73)",
-          "primary": "oklch(0.71 0.16 293.54)",
-          "primary-foreground": "oklch(1.00 0 0)",
-          "secondary": "oklch(0.91 0.05 306.09)",
-          "secondary-foreground": "oklch(0.45 0.03 256.80)",
-          "muted": "oklch(0.95 0.03 307.17)",
-          "muted-foreground": "oklch(0.55 0.02 264.36)",
-          "accent": "oklch(0.94 0.03 321.94)",
-          "accent-foreground": "oklch(0.37 0.03 259.73)",
-          "destructive": "oklch(0.81 0.10 19.57)",
-          "destructive-foreground": "oklch(1.00 0 0)",
-          "border": "oklch(0.91 0.05 306.09)",
-          "input": "oklch(0.91 0.05 306.09)",
-          "ring": "oklch(0.71 0.16 293.54)",
-          "chart-1": "oklch(0.71 0.16 293.54)",
-          "chart-2": "oklch(0.61 0.22 292.72)",
-          "chart-3": "oklch(0.54 0.25 293.01)",
-          "chart-4": "oklch(0.49 0.24 292.58)",
-          "chart-5": "oklch(0.43 0.21 292.76)",
-          "radius": "1.5rem",
-          "sidebar": "oklch(0.91 0.05 306.09)",
-          "sidebar-foreground": "oklch(0.37 0.03 259.73)",
-          "sidebar-primary": "oklch(0.71 0.16 293.54)",
-          "sidebar-primary-foreground": "oklch(1.00 0 0)",
-          "sidebar-accent": "oklch(0.94 0.03 321.94)",
-          "sidebar-accent-foreground": "oklch(0.37 0.03 259.73)",
-          "sidebar-border": "oklch(0.91 0.05 306.09)",
-          "sidebar-ring": "oklch(0.71 0.16 293.54)",
-          "font-sans": "Open Sans, sans-serif",
-          "font-serif": "Source Serif 4, serif",
-          "font-mono": "IBM Plex Mono, monospace",
-          "shadow-color": "hsl(0 0% 0%)",
-          "shadow-opacity": "0.08",
-          "shadow-blur": "16px",
-          "shadow-spread": "-4px",
-          "shadow-offset-x": "0px",
-          "shadow-offset-y": "8px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "0px 8px 16px -4px hsl(0 0% 0% / 0.04)",
-          "shadow-xs": "0px 8px 16px -4px hsl(0 0% 0% / 0.04)",
-          "shadow-sm": "0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 1px 2px -5px hsl(0 0% 0% / 0.08)",
-          "shadow": "0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 1px 2px -5px hsl(0 0% 0% / 0.08)",
-          "shadow-md": "0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 2px 4px -5px hsl(0 0% 0% / 0.08)",
-          "shadow-lg": "0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 4px 6px -5px hsl(0 0% 0% / 0.08)",
-          "shadow-xl": "0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 8px 10px -5px hsl(0 0% 0% / 0.08)",
-          "shadow-2xl": "0px 8px 16px -4px hsl(0 0% 0% / 0.20)",
-          "tracking-normal": "0em"
-        },
-        "dark": {
-          "background": "oklch(0.22 0.01 56.04)",
-          "foreground": "oklch(0.93 0.03 272.79)",
-          "card": "oklch(0.28 0.03 307.23)",
-          "card-foreground": "oklch(0.93 0.03 272.79)",
-          "popover": "oklch(0.28 0.03 307.23)",
-          "popover-foreground": "oklch(0.93 0.03 272.79)",
-          "primary": "oklch(0.79 0.12 295.75)",
-          "primary-foreground": "oklch(0.22 0.01 56.04)",
-          "secondary": "oklch(0.34 0.04 308.85)",
-          "secondary-foreground": "oklch(0.87 0.01 258.34)",
-          "muted": "oklch(0.28 0.03 307.23)",
-          "muted-foreground": "oklch(0.71 0.02 261.32)",
-          "accent": "oklch(0.39 0.05 304.64)",
-          "accent-foreground": "oklch(0.87 0.01 258.34)",
-          "destructive": "oklch(0.81 0.10 19.57)",
-          "destructive-foreground": "oklch(0.22 0.01 56.04)",
-          "border": "oklch(0.34 0.04 308.85)",
-          "input": "oklch(0.34 0.04 308.85)",
-          "ring": "oklch(0.79 0.12 295.75)",
-          "chart-1": "oklch(0.79 0.12 295.75)",
-          "chart-2": "oklch(0.71 0.16 293.54)",
-          "chart-3": "oklch(0.61 0.22 292.72)",
-          "chart-4": "oklch(0.54 0.25 293.01)",
-          "chart-5": "oklch(0.49 0.24 292.58)",
-          "radius": "1.5rem",
-          "sidebar": "oklch(0.34 0.04 308.85)",
-          "sidebar-foreground": "oklch(0.93 0.03 272.79)",
-          "sidebar-primary": "oklch(0.79 0.12 295.75)",
-          "sidebar-primary-foreground": "oklch(0.22 0.01 56.04)",
-          "sidebar-accent": "oklch(0.39 0.05 304.64)",
-          "sidebar-accent-foreground": "oklch(0.87 0.01 258.34)",
-          "sidebar-border": "oklch(0.34 0.04 308.85)",
-          "sidebar-ring": "oklch(0.79 0.12 295.75)",
-          "font-sans": "Open Sans, sans-serif",
-          "font-serif": "Source Serif 4, serif",
-          "font-mono": "IBM Plex Mono, monospace",
-          "shadow-color": "hsl(0 0% 0%)",
-          "shadow-opacity": "0.08",
-          "shadow-blur": "16px",
-          "shadow-spread": "-4px",
-          "shadow-offset-x": "0px",
-          "shadow-offset-y": "8px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "0px 8px 16px -4px hsl(0 0% 0% / 0.04)",
-          "shadow-xs": "0px 8px 16px -4px hsl(0 0% 0% / 0.04)",
-          "shadow-sm": "0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 1px 2px -5px hsl(0 0% 0% / 0.08)",
-          "shadow": "0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 1px 2px -5px hsl(0 0% 0% / 0.08)",
-          "shadow-md": "0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 2px 4px -5px hsl(0 0% 0% / 0.08)",
-          "shadow-lg": "0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 4px 6px -5px hsl(0 0% 0% / 0.08)",
-          "shadow-xl": "0px 8px 16px -4px hsl(0 0% 0% / 0.08), 0px 8px 10px -5px hsl(0 0% 0% / 0.08)",
-          "shadow-2xl": "0px 8px 16px -4px hsl(0 0% 0% / 0.20)"
-        }
-      }
-    },
-    {
       "name": "clean-slate",
-      "type": "registry:style",
       "title": "Clean Slate",
-      "description": "A theme based on the Clean Slate color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Inter, sans-serif",
@@ -3245,16 +2399,7 @@
     },
     {
       "name": "caffeine",
-      "type": "registry:style",
       "title": "Caffeine",
-      "description": "A theme based on the Caffeine color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -3380,16 +2525,7 @@
     },
     {
       "name": "ocean-breeze",
-      "type": "registry:style",
       "title": "Ocean Breeze",
-      "description": "A theme based on the Ocean Breeze color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "DM Sans, sans-serif",
@@ -3514,152 +2650,8 @@
       }
     },
     {
-      "name": "retro-arcade",
-      "type": "registry:style",
-      "title": "Retro Arcade",
-      "description": "A theme based on the Retro Arcade color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
-      "cssVars": {
-        "theme": {
-          "font-sans": "Outfit, sans-serif",
-          "font-mono": "Space Mono, monospace",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "radius": "0.25rem",
-          "tracking-tighter": "calc(var(--tracking-normal) - 0.05em)",
-          "tracking-tight": "calc(var(--tracking-normal) - 0.025em)",
-          "tracking-wide": "calc(var(--tracking-normal) + 0.025em)",
-          "tracking-wider": "calc(var(--tracking-normal) + 0.05em)",
-          "tracking-widest": "calc(var(--tracking-normal) + 0.1em)"
-        },
-        "light": {
-          "background": "oklch(0.97 0.03 90.10)",
-          "foreground": "oklch(0.31 0.05 219.65)",
-          "card": "oklch(0.93 0.03 92.40)",
-          "card-foreground": "oklch(0.31 0.05 219.65)",
-          "popover": "oklch(0.93 0.03 92.40)",
-          "popover-foreground": "oklch(0.31 0.05 219.65)",
-          "primary": "oklch(0.59 0.20 355.89)",
-          "primary-foreground": "oklch(1.00 0 0)",
-          "secondary": "oklch(0.64 0.10 187.38)",
-          "secondary-foreground": "oklch(1.00 0 0)",
-          "muted": "oklch(0.70 0.02 196.79)",
-          "muted-foreground": "oklch(0.31 0.05 219.65)",
-          "accent": "oklch(0.58 0.17 39.50)",
-          "accent-foreground": "oklch(1.00 0 0)",
-          "destructive": "oklch(0.59 0.21 27.12)",
-          "destructive-foreground": "oklch(1.00 0 0)",
-          "border": "oklch(0.65 0.02 205.26)",
-          "input": "oklch(0.65 0.02 205.26)",
-          "ring": "oklch(0.59 0.20 355.89)",
-          "chart-1": "oklch(0.61 0.14 244.93)",
-          "chart-2": "oklch(0.64 0.10 187.38)",
-          "chart-3": "oklch(0.59 0.20 355.89)",
-          "chart-4": "oklch(0.58 0.17 39.50)",
-          "chart-5": "oklch(0.59 0.21 27.12)",
-          "radius": "0.25rem",
-          "sidebar": "oklch(0.97 0.03 90.10)",
-          "sidebar-foreground": "oklch(0.31 0.05 219.65)",
-          "sidebar-primary": "oklch(0.59 0.20 355.89)",
-          "sidebar-primary-foreground": "oklch(1.00 0 0)",
-          "sidebar-accent": "oklch(0.64 0.10 187.38)",
-          "sidebar-accent-foreground": "oklch(1.00 0 0)",
-          "sidebar-border": "oklch(0.65 0.02 205.26)",
-          "sidebar-ring": "oklch(0.59 0.20 355.89)",
-          "font-sans": "Outfit, sans-serif",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "font-mono": "Space Mono, monospace",
-          "shadow-color": "hsl(196 83% 10%)",
-          "shadow-opacity": "0.15",
-          "shadow-blur": "4px",
-          "shadow-spread": "0px",
-          "shadow-offset-x": "2px",
-          "shadow-offset-y": "2px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "2px 2px 4px 0px hsl(196 83% 10% / 0.07)",
-          "shadow-xs": "2px 2px 4px 0px hsl(196 83% 10% / 0.07)",
-          "shadow-sm": "2px 2px 4px 0px hsl(196 83% 10% / 0.15), 2px 1px 2px -1px hsl(196 83% 10% / 0.15)",
-          "shadow": "2px 2px 4px 0px hsl(196 83% 10% / 0.15), 2px 1px 2px -1px hsl(196 83% 10% / 0.15)",
-          "shadow-md": "2px 2px 4px 0px hsl(196 83% 10% / 0.15), 2px 2px 4px -1px hsl(196 83% 10% / 0.15)",
-          "shadow-lg": "2px 2px 4px 0px hsl(196 83% 10% / 0.15), 2px 4px 6px -1px hsl(196 83% 10% / 0.15)",
-          "shadow-xl": "2px 2px 4px 0px hsl(196 83% 10% / 0.15), 2px 8px 10px -1px hsl(196 83% 10% / 0.15)",
-          "shadow-2xl": "2px 2px 4px 0px hsl(196 83% 10% / 0.38)",
-          "tracking-normal": "0em"
-        },
-        "dark": {
-          "background": "oklch(0.27 0.05 219.82)",
-          "foreground": "oklch(0.70 0.02 196.79)",
-          "card": "oklch(0.31 0.05 219.65)",
-          "card-foreground": "oklch(0.70 0.02 196.79)",
-          "popover": "oklch(0.31 0.05 219.65)",
-          "popover-foreground": "oklch(0.70 0.02 196.79)",
-          "primary": "oklch(0.59 0.20 355.89)",
-          "primary-foreground": "oklch(1.00 0 0)",
-          "secondary": "oklch(0.64 0.10 187.38)",
-          "secondary-foreground": "oklch(1.00 0 0)",
-          "muted": "oklch(0.52 0.03 219.14)",
-          "muted-foreground": "oklch(0.70 0.02 196.79)",
-          "accent": "oklch(0.58 0.17 39.50)",
-          "accent-foreground": "oklch(1.00 0 0)",
-          "destructive": "oklch(0.59 0.21 27.12)",
-          "destructive-foreground": "oklch(1.00 0 0)",
-          "border": "oklch(0.52 0.03 219.14)",
-          "input": "oklch(0.52 0.03 219.14)",
-          "ring": "oklch(0.59 0.20 355.89)",
-          "chart-1": "oklch(0.61 0.14 244.93)",
-          "chart-2": "oklch(0.64 0.10 187.38)",
-          "chart-3": "oklch(0.59 0.20 355.89)",
-          "chart-4": "oklch(0.58 0.17 39.50)",
-          "chart-5": "oklch(0.59 0.21 27.12)",
-          "radius": "0.25rem",
-          "sidebar": "oklch(0.27 0.05 219.82)",
-          "sidebar-foreground": "oklch(0.70 0.02 196.79)",
-          "sidebar-primary": "oklch(0.59 0.20 355.89)",
-          "sidebar-primary-foreground": "oklch(1.00 0 0)",
-          "sidebar-accent": "oklch(0.64 0.10 187.38)",
-          "sidebar-accent-foreground": "oklch(1.00 0 0)",
-          "sidebar-border": "oklch(0.52 0.03 219.14)",
-          "sidebar-ring": "oklch(0.59 0.20 355.89)",
-          "font-sans": "Outfit, sans-serif",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "font-mono": "Space Mono, monospace",
-          "shadow-color": "hsl(196 83% 10%)",
-          "shadow-opacity": "0.15",
-          "shadow-blur": "4px",
-          "shadow-spread": "0px",
-          "shadow-offset-x": "2px",
-          "shadow-offset-y": "2px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "2px 2px 4px 0px hsl(196 83% 10% / 0.07)",
-          "shadow-xs": "2px 2px 4px 0px hsl(196 83% 10% / 0.07)",
-          "shadow-sm": "2px 2px 4px 0px hsl(196 83% 10% / 0.15), 2px 1px 2px -1px hsl(196 83% 10% / 0.15)",
-          "shadow": "2px 2px 4px 0px hsl(196 83% 10% / 0.15), 2px 1px 2px -1px hsl(196 83% 10% / 0.15)",
-          "shadow-md": "2px 2px 4px 0px hsl(196 83% 10% / 0.15), 2px 2px 4px -1px hsl(196 83% 10% / 0.15)",
-          "shadow-lg": "2px 2px 4px 0px hsl(196 83% 10% / 0.15), 2px 4px 6px -1px hsl(196 83% 10% / 0.15)",
-          "shadow-xl": "2px 2px 4px 0px hsl(196 83% 10% / 0.15), 2px 8px 10px -1px hsl(196 83% 10% / 0.15)",
-          "shadow-2xl": "2px 2px 4px 0px hsl(196 83% 10% / 0.38)"
-        }
-      }
-    },
-    {
       "name": "midnight-bloom",
-      "type": "registry:style",
       "title": "Midnight Bloom",
-      "description": "A theme based on the Midnight Bloom color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Montserrat, sans-serif",
@@ -3784,152 +2776,8 @@
       }
     },
     {
-      "name": "candyland",
-      "type": "registry:style",
-      "title": "Candyland",
-      "description": "A theme based on the Candyland color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
-      "cssVars": {
-        "theme": {
-          "font-sans": "Poppins, sans-serif",
-          "font-mono": "Roboto Mono, monospace",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "radius": "0.5rem",
-          "tracking-tighter": "calc(var(--tracking-normal) - 0.05em)",
-          "tracking-tight": "calc(var(--tracking-normal) - 0.025em)",
-          "tracking-wide": "calc(var(--tracking-normal) + 0.025em)",
-          "tracking-wider": "calc(var(--tracking-normal) + 0.05em)",
-          "tracking-widest": "calc(var(--tracking-normal) + 0.1em)"
-        },
-        "light": {
-          "background": "oklch(0.98 0.00 228.78)",
-          "foreground": "oklch(0.32 0 0)",
-          "card": "oklch(1.00 0 0)",
-          "card-foreground": "oklch(0.32 0 0)",
-          "popover": "oklch(1.00 0 0)",
-          "popover-foreground": "oklch(0.32 0 0)",
-          "primary": "oklch(0.87 0.07 7.09)",
-          "primary-foreground": "oklch(0 0 0)",
-          "secondary": "oklch(0.81 0.08 225.75)",
-          "secondary-foreground": "oklch(0 0 0)",
-          "muted": "oklch(0.88 0.03 98.10)",
-          "muted-foreground": "oklch(0.54 0 0)",
-          "accent": "oklch(0.97 0.21 109.77)",
-          "accent-foreground": "oklch(0 0 0)",
-          "destructive": "oklch(0.64 0.21 25.33)",
-          "destructive-foreground": "oklch(1.00 0 0)",
-          "border": "oklch(0.87 0 0)",
-          "input": "oklch(0.87 0 0)",
-          "ring": "oklch(0.87 0.07 7.09)",
-          "chart-1": "oklch(0.87 0.07 7.09)",
-          "chart-2": "oklch(0.81 0.08 225.75)",
-          "chart-3": "oklch(0.97 0.21 109.77)",
-          "chart-4": "oklch(0.80 0.14 349.23)",
-          "chart-5": "oklch(0.74 0.23 142.85)",
-          "radius": "0.5rem",
-          "sidebar": "oklch(0.98 0.00 228.78)",
-          "sidebar-foreground": "oklch(0.32 0 0)",
-          "sidebar-primary": "oklch(0.87 0.07 7.09)",
-          "sidebar-primary-foreground": "oklch(0 0 0)",
-          "sidebar-accent": "oklch(0.97 0.21 109.77)",
-          "sidebar-accent-foreground": "oklch(0 0 0)",
-          "sidebar-border": "oklch(0.87 0 0)",
-          "sidebar-ring": "oklch(0.87 0.07 7.09)",
-          "font-sans": "Poppins, sans-serif",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "font-mono": "Roboto Mono, monospace",
-          "shadow-color": "hsl(0 0% 0%)",
-          "shadow-opacity": "0.1",
-          "shadow-blur": "3px",
-          "shadow-spread": "0px",
-          "shadow-offset-x": "0",
-          "shadow-offset-y": "1px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "0 1px 3px 0px hsl(0 0% 0% / 0.05)",
-          "shadow-xs": "0 1px 3px 0px hsl(0 0% 0% / 0.05)",
-          "shadow-sm": "0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10)",
-          "shadow": "0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10)",
-          "shadow-md": "0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10)",
-          "shadow-lg": "0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10)",
-          "shadow-xl": "0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10)",
-          "shadow-2xl": "0 1px 3px 0px hsl(0 0% 0% / 0.25)",
-          "tracking-normal": "0em"
-        },
-        "dark": {
-          "background": "oklch(0.23 0.01 264.29)",
-          "foreground": "oklch(0.92 0 0)",
-          "card": "oklch(0.32 0.01 223.67)",
-          "card-foreground": "oklch(0.92 0 0)",
-          "popover": "oklch(0.32 0.01 223.67)",
-          "popover-foreground": "oklch(0.92 0 0)",
-          "primary": "oklch(0.80 0.14 349.23)",
-          "primary-foreground": "oklch(0 0 0)",
-          "secondary": "oklch(0.74 0.23 142.85)",
-          "secondary-foreground": "oklch(0 0 0)",
-          "muted": "oklch(0.39 0 0)",
-          "muted-foreground": "oklch(0.72 0 0)",
-          "accent": "oklch(0.81 0.08 225.75)",
-          "accent-foreground": "oklch(0 0 0)",
-          "destructive": "oklch(0.64 0.21 25.33)",
-          "destructive-foreground": "oklch(1.00 0 0)",
-          "border": "oklch(0.39 0 0)",
-          "input": "oklch(0.39 0 0)",
-          "ring": "oklch(0.80 0.14 349.23)",
-          "chart-1": "oklch(0.80 0.14 349.23)",
-          "chart-2": "oklch(0.74 0.23 142.85)",
-          "chart-3": "oklch(0.81 0.08 225.75)",
-          "chart-4": "oklch(0.97 0.21 109.77)",
-          "chart-5": "oklch(0.87 0.18 90.38)",
-          "radius": "0.5rem",
-          "sidebar": "oklch(0.23 0.01 264.29)",
-          "sidebar-foreground": "oklch(0.92 0 0)",
-          "sidebar-primary": "oklch(0.80 0.14 349.23)",
-          "sidebar-primary-foreground": "oklch(0 0 0)",
-          "sidebar-accent": "oklch(0.81 0.08 225.75)",
-          "sidebar-accent-foreground": "oklch(0 0 0)",
-          "sidebar-border": "oklch(0.39 0 0)",
-          "sidebar-ring": "oklch(0.80 0.14 349.23)",
-          "font-sans": "Poppins, sans-serif",
-          "font-serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-          "font-mono": "Roboto Mono, monospace",
-          "shadow-color": "hsl(0 0% 0%)",
-          "shadow-opacity": "0.1",
-          "shadow-blur": "3px",
-          "shadow-spread": "0px",
-          "shadow-offset-x": "0",
-          "shadow-offset-y": "1px",
-          "letter-spacing": "0em",
-          "spacing": "0.25rem",
-          "shadow-2xs": "0 1px 3px 0px hsl(0 0% 0% / 0.05)",
-          "shadow-xs": "0 1px 3px 0px hsl(0 0% 0% / 0.05)",
-          "shadow-sm": "0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10)",
-          "shadow": "0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10)",
-          "shadow-md": "0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10)",
-          "shadow-lg": "0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10)",
-          "shadow-xl": "0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10)",
-          "shadow-2xl": "0 1px 3px 0px hsl(0 0% 0% / 0.25)"
-        }
-      }
-    },
-    {
       "name": "northern-lights",
-      "type": "registry:style",
       "title": "Northern Lights",
-      "description": "A theme based on the Northern Lights color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Plus Jakarta Sans, sans-serif",
@@ -4055,16 +2903,7 @@
     },
     {
       "name": "vintage-paper",
-      "type": "registry:style",
       "title": "Vintage Paper",
-      "description": "A theme based on the Vintage Paper color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Libre Baskerville, serif",
@@ -4190,16 +3029,7 @@
     },
     {
       "name": "sunset-horizon",
-      "type": "registry:style",
       "title": "Sunset Horizon",
-      "description": "A theme based on the Sunset Horizon color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Montserrat, sans-serif",
@@ -4325,16 +3155,7 @@
     },
     {
       "name": "starry-night",
-      "type": "registry:style",
       "title": "Starry Night",
-      "description": "A theme based on the Starry Night color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Libre Baskerville, serif",
@@ -4460,16 +3281,7 @@
     },
     {
       "name": "claude",
-      "type": "registry:style",
       "title": "Claude",
-      "description": "A theme based on the Claude color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -4595,16 +3407,7 @@
     },
     {
       "name": "vercel",
-      "type": "registry:style",
       "title": "Midnight System",
-      "description": "A crisp monochrome theme with a modern product palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Geist, sans-serif",
@@ -4730,16 +3533,7 @@
     },
     {
       "name": "mono",
-      "type": "registry:style",
       "title": "Mono",
-      "description": "A theme based on the Mono color palette.",
-      "css": {
-        "@layer base": {
-          "body": {
-            "letter-spacing": "var(--tracking-normal)"
-          }
-        }
-      },
       "cssVars": {
         "theme": {
           "font-sans": "Geist Mono, monospace",

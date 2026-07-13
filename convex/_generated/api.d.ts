@@ -47,7 +47,6 @@ import type * as features_notiondb_queries from "../features/notiondb/queries.js
 import type * as features_notiondb_registry from "../features/notiondb/registry.js";
 import type * as features_office_mutations from "../features/office/mutations.js";
 import type * as features_office_queries from "../features/office/queries.js";
-import type * as features_office_signals from "../features/office/signals.js";
 import type * as features_onboarding_queries from "../features/onboarding/queries.js";
 import type * as features_pageviews_mutations from "../features/pageviews/mutations.js";
 import type * as features_pageviews_queries from "../features/pageviews/queries.js";
@@ -110,7 +109,6 @@ declare const fullApi: ApiFromModules<{
   "features/notiondb/registry": typeof features_notiondb_registry;
   "features/office/mutations": typeof features_office_mutations;
   "features/office/queries": typeof features_office_queries;
-  "features/office/signals": typeof features_office_signals;
   "features/onboarding/queries": typeof features_onboarding_queries;
   "features/pageviews/mutations": typeof features_pageviews_mutations;
   "features/pageviews/queries": typeof features_pageviews_queries;

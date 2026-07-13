@@ -18,16 +18,6 @@ import "@testing-library/jest-dom/vitest";
 // so we discriminate mutations by getFunctionName() ("features/holdings/
 // mutations:create"), not reference identity.
 
-// Real ReactMutation is a callable carrying a chainable `.withOptimisticUpdate`.
-// This hook does not use it, but mirroring the proven harness keeps the mock
-// shape correct regardless.
-function mockMutation() {
-  const fn = vi.fn() as ReturnType<typeof vi.fn> & {
-    withOptimisticUpdate: (u: unknown) => typeof fn;
-  };
-  return Object.assign(fn, { withOptimisticUpdate: () => fn });
-}
-
 const create = mockMutation();
 const update = mockMutation();
 const remove = mockMutation();
@@ -42,14 +32,14 @@ vi.mock("convex/react", () => ({ useMutation: (r: unknown) => useMutation(r) }))
 
 const toast = vi.fn();
 const log = vi.fn();
-vi.mock("../../frontend/shared", () => ({
-  useToast: () => toast,
-  useActivityLog: () => log,
-}));
+vi.mock("../../frontend/shared", async () =>
+  (await import("./_writes-harness")).sharedMock(() => toast, () => log),
+);
 
 import { useInvestasiWrites } from "../../frontend/slices/investasi-pasar/writes";
 import { PALETTE, DEFAULT_POINTS } from "../../frontend/slices/investasi-pasar/data";
 import type { Id } from "../../convex/_generated/dataModel";
+import { mockMutation } from "./_writes-harness";
 
 describe("useInvestasiWrites", () => {
   beforeEach(() => {

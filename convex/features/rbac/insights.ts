@@ -2,8 +2,8 @@ import { query } from "../../_generated/server";
 import { requirePrincipal } from "../../_shared/auth";
 
 // Admin "Saran & Kritik" — deterministic, rule-based access/usage insights for
-// the principal. NO LLM (can't hallucinate). Mirrors the office/signals.ts pattern
-// (warn→watch→good, ranked, capped) over users/roles/activity already in Convex.
+// the principal. NO LLM (can't hallucinate). Ranked warn→watch→good, capped,
+// computed over users/roles/activity already in Convex.
 // Separate file to keep queries.ts under the ~200-line cap.
 export type AdminInsight = {
   id: string;

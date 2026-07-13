@@ -10,10 +10,6 @@ const buttonVariants = cva(
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         outline: "border border-border bg-background hover:bg-accent",
-        // Superset added for vendored notion-database (data-studio) UI primitives.
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        link: "text-primary underline-offset-4 hover:underline",
         // App gold pill accent (the "+ Tambah"/"Ubah" header actions). Pair with size="pill".
         gold: "border border-gold/50 text-gold hover:bg-gold/10",
       },
@@ -22,9 +18,6 @@ const buttonVariants = cva(
         sm: "h-8 px-3",
         lg: "h-12 px-6 text-base",
         icon: "h-10 w-10",
-        // Superset added for vendored notion-database (data-studio) UI primitives.
-        xs: "h-6 gap-1 rounded-md px-2 text-xs",
-        "icon-xs": "h-6 w-6 rounded-md",
         // Gold pill shape for GoldButton (rounded-full chip; pair with variant="gold").
         pill: "h-auto rounded-full px-2.5 py-0.5 text-xs",
       },

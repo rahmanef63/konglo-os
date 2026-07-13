@@ -15,16 +15,6 @@ import "@testing-library/jest-dom/vitest";
 // property read, so we discriminate mutations by getFunctionName() (stable
 // "features/contacts/mutations:create" path), not reference identity.
 
-// The real ReactMutation is a *callable* carrying `.withOptimisticUpdate`. The
-// contacts hook doesn't use it today, but we mirror the proven harness exactly
-// so the mock is future-proof and never throws "is not a function".
-function mockMutation() {
-  const fn = vi.fn() as ReturnType<typeof vi.fn> & {
-    withOptimisticUpdate: (u: unknown) => typeof fn;
-  };
-  return Object.assign(fn, { withOptimisticUpdate: () => fn });
-}
-
 const create = mockMutation();
 const update = mockMutation();
 const remove = mockMutation();
@@ -39,13 +29,13 @@ vi.mock("convex/react", () => ({ useMutation: (r: unknown) => useMutation(r) }))
 
 const toast = vi.fn();
 const log = vi.fn();
-vi.mock("../../frontend/shared", () => ({
-  useToast: () => toast,
-  useActivityLog: () => log,
-}));
+vi.mock("../../frontend/shared", async () =>
+  (await import("./_writes-harness")).sharedMock(() => toast, () => log),
+);
 
 import { useContactWrites } from "../../frontend/slices/relasi-jaringan/writes";
 import type { Id } from "../../convex/_generated/dataModel";
+import { mockMutation } from "./_writes-harness";
 
 describe("useContactWrites", () => {
   beforeEach(() => {

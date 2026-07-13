@@ -1,39 +1,12 @@
-import { convexTest } from "convex-test";
 import { describe, it, expect } from "vitest";
 import { api } from "../../convex/_generated/api";
-import schema from "../../convex/schema";
-import type { Role } from "../../lib/roles";
+import { makeT, seedUser } from "./_harness";
 
 // Mirrors grants-events.test.ts. "kesehatan" is absent from BOTH cfo's and
 // staf's ROLE_MENU, so every write is principal-only — cfo and staf are blocked
 // at the READ gate inside requireFeatureWrite. Covers healthSchedule and
 // healthMedicalTeam: the WRITE gate (staf/cfo Forbidden, principal passes), a
 // create→update happy path, and a bad-numeric (negative order) rejection.
-
-interface GlobImportMeta extends ImportMeta {
-  glob(pattern: string): Record<string, () => Promise<unknown>>;
-}
-
-const modules = (import.meta as GlobImportMeta).glob(
-  "../../convex/**/!(*.d).{js,ts}",
-);
-
-async function seedUser(
-  t: ReturnType<typeof convexTest>,
-  role: Role | null,
-  email: string,
-) {
-  const userId = await t.run(async (ctx) => {
-    const id = await ctx.db.insert("users", { email });
-    if (role) await ctx.db.insert("roles", { userId: id, role });
-    return id;
-  });
-  return t.withIdentity({ subject: `${userId}|testsession` });
-}
-
-function makeT() {
-  return convexTest(schema, modules);
-}
 
 const schedule = {
   date: "12 Jun",

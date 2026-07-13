@@ -4,26 +4,6 @@ import { renderHook, act } from "@testing-library/react";
 import { getFunctionName } from "convex/server";
 import "@testing-library/jest-dom/vitest";
 
-// useFilantropiWrites binds three philanthropyGrants mutations (createGrant /
-// updateGrant / removeGrant) to a toast + audit-log. Mock all three so we assert:
-//   add()      → create called with progress Number()-coerced + cycled palette
-//                color, success toast + audit log; reject → warn + rethrow.
-//   disburse() → update called with { id, progress:Number, expectedVersion },
-//                success toast/log; a "conflict" error → "muat ulang" warn + rethrow.
-//   del()      → remove called with { id }, warn toast + audit log.
-//
-// `api` from _generated is `anyApi` — a proxy returning a *fresh* object per
-// property read — so we discriminate mutations by getFunctionName() suffix, not
-// reference identity. mockMutation() is a callable carrying .withOptimisticUpdate
-// (the proven harness keeps it so any hook that registers an optimistic update
-// before awaiting doesn't throw "withOptimisticUpdate is not a function").
-function mockMutation() {
-  const fn = vi.fn() as ReturnType<typeof vi.fn> & {
-    withOptimisticUpdate: (u: unknown) => typeof fn;
-  };
-  return Object.assign(fn, { withOptimisticUpdate: () => fn });
-}
-
 const create = mockMutation();
 const update = mockMutation();
 const remove = mockMutation();
@@ -38,14 +18,13 @@ vi.mock("convex/react", () => ({ useMutation: (r: unknown) => useMutation(r) }))
 
 const toast = vi.fn();
 const log = vi.fn();
-vi.mock("../../frontend/shared", () => ({
-  useToast: () => toast,
-  useActivityLog: () => log,
-  isConflict: (e: unknown) => e instanceof Error && /conflict/i.test(e.message),
-}));
+vi.mock("../../frontend/shared", async () =>
+  (await import("./_writes-harness")).sharedMock(() => toast, () => log),
+);
 
 import { useFilantropiWrites } from "../../frontend/slices/filantropi/writes";
 import type { Id } from "../../convex/_generated/dataModel";
+import { mockMutation } from "./_writes-harness";
 
 describe("useFilantropiWrites", () => {
   beforeEach(() => {

@@ -7,8 +7,8 @@ import { SectionCard, Skeleton } from "@/frontend/shared";
 import type { AdminInsight } from "@/convex/features/rbac/insights";
 
 // Saran & Kritik — deterministic access/usage recommendations for the principal
-// (Convex getAdminInsights, warn→watch→good). Mirrors the Beranda SinyalHariIni
-// card but in the admin SectionCard visual language. Rule-based, no LLM.
+// (Convex getAdminInsights, warn→watch→good) in the admin SectionCard visual
+// language. Rule-based, no LLM.
 const SEVERITY: Record<
   AdminInsight["severity"],
   { icon: typeof AlertTriangle; color: string; label: string }
