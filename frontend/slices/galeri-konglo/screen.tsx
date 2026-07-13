@@ -1,17 +1,19 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Info, Search } from "lucide-react";
+import { Info, LayoutGrid, Search, Share2 } from "lucide-react";
 import { GlassCard, StatGrid, StatTile } from "@/frontend/shared";
 import { KONGLO_ASOF, KONGLO_GROUPS } from "./data";
 import { buildEdges } from "./types";
 import { KongloCard } from "./card";
 import { KongloDetail } from "./detail";
+import { KongloGraph } from "./graph";
 
 // Galeri Konglo — public-data directory of Indonesian conglomerates. Static
 // in-repo snapshot (see data.ts): identical for demo + real users, no Convex.
 // The disclaimer banner is the legal posture — keep it FIRST and always visible.
 export default function GaleriKongloScreen() {
+  const [view, setView] = useState<"galeri" | "graf">("galeri");
   const [q, setQ] = useState("");
   const [sector, setSector] = useState<string | null>(null);
   const [openId, setOpenId] = useState<string | null>(null);
@@ -62,9 +64,36 @@ export default function GaleriKongloScreen() {
         <StatTile label="Grup Konglomerat" value={String(KONGLO_GROUPS.length)} accent />
         <StatTile label="Perusahaan Kunci" value={String(companies)} />
         <StatTile label="Tokoh Publik" value={String(people)} />
-        <StatTile label="Relasi Graf" value={String(buildEdges(KONGLO_GROUPS).length)} hint="pratinjau graf — segera" />
+        <StatTile label="Relasi Graf" value={String(buildEdges(KONGLO_GROUPS).length)} hint={view === "graf" ? "graf aktif" : "buka tab Graf"} tone="up" />
       </StatGrid>
 
+      {/* Galeri / Graf view toggle. */}
+      <div className="inline-flex rounded-xl border border-border p-0.5">
+        {([
+          ["galeri", "Galeri", LayoutGrid],
+          ["graf", "Graf Relasi", Share2],
+        ] as const).map(([id, label, Icon]) => (
+          <button
+            key={id}
+            type="button"
+            aria-pressed={view === id}
+            onClick={() => setView(id)}
+            className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
+              view === id
+                ? "bg-[color:var(--color-gold)]/12 text-[color:var(--color-gold)]"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <Icon aria-hidden className="h-4 w-4" />
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {view === "graf" ? (
+        <KongloGraph groups={KONGLO_GROUPS} onOpen={setOpenId} />
+      ) : (
+      <>
       {/* Toolbar: search + sector filter chips. */}
       <div className="space-y-2.5">
         <label className="relative block max-w-md">
@@ -110,6 +139,8 @@ export default function GaleriKongloScreen() {
             <KongloCard key={g.id} group={g} onOpen={setOpenId} />
           ))}
         </div>
+      )}
+      </>
       )}
 
       <KongloDetail
