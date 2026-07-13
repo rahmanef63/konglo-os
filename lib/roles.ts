@@ -15,8 +15,10 @@ export const ROLE_MENU: Record<Role, string[] | "all"> = {
     "investasi-pasar",
     "properti-aset",
     "data-studio",
+    "galeri-konglo",
   ],
-  staf: ["beranda", "keamanan-staf"],
+  // galeri-konglo is public-data only (static snapshot) → safe for every role.
+  staf: ["beranda", "keamanan-staf", "galeri-konglo"],
 };
 
 // Slugs a demo (anonymous) user may open — the mock-backed domain views only.
@@ -35,6 +37,8 @@ export const DEMO_SLUGS: string[] = [
   "hiburan-gaya-hidup",
   "relasi-jaringan",
   "keamanan-staf",
+  // Static public dataset (no Convex read/write) — safe in demo by design.
+  "galeri-konglo",
 ];
 
 export function canAccess(role: Role, slug: string, isDemo = false): boolean {

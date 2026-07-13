@@ -10,6 +10,7 @@ const CFO_ALLOWED = [
   "investasi-pasar",
   "properti-aset",
   "data-studio",
+  "galeri-konglo", // public-data gallery — safe for every role
 ];
 // Slugs a cfo must NOT reach (the confidential / out-of-scope surface).
 const CFO_DENIED = [
@@ -21,7 +22,7 @@ const CFO_DENIED = [
   "relasi-jaringan",
   "keamanan-staf",
 ];
-const STAF_ALLOWED = ["beranda", "keamanan-staf"];
+const STAF_ALLOWED = ["beranda", "keamanan-staf", "galeri-konglo"];
 const STAF_DENIED = [
   "portofolio-bisnis",
   "kekayaan-kas",
@@ -56,8 +57,8 @@ describe("canAccess — principal (owner, wildcard)", () => {
   });
 });
 
-describe("canAccess — cfo (6 ROLE_MENU slugs)", () => {
-  it("ROLE_MENU.cfo lists exactly its six allowed slugs", () => {
+describe("canAccess — cfo (7 ROLE_MENU slugs)", () => {
+  it("ROLE_MENU.cfo lists exactly its seven allowed slugs", () => {
     expect(ROLE_MENU.cfo).toEqual(CFO_ALLOWED);
   });
 
@@ -74,8 +75,8 @@ describe("canAccess — cfo (6 ROLE_MENU slugs)", () => {
   });
 });
 
-describe("canAccess — staf (beranda + keamanan-staf only)", () => {
-  it("ROLE_MENU.staf lists exactly beranda + keamanan-staf", () => {
+describe("canAccess — staf (beranda + keamanan-staf + galeri-konglo)", () => {
+  it("ROLE_MENU.staf lists exactly its three allowed slugs", () => {
     expect(ROLE_MENU.staf).toEqual(STAF_ALLOWED);
   });
 

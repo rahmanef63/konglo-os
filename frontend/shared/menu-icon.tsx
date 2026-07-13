@@ -13,6 +13,8 @@ const PATHS: Record<string, string> = {
   "relasi-jaringan":
     "M6 8a3 3 0 100-6 3 3 0 000 6zM18 8a3 3 0 100-6 3 3 0 000 6zM6 22a3 3 0 100-6 3 3 0 000 6zM18 22a3 3 0 100-6 3 3 0 000 6zM8.5 6.5l7 0M8.5 17.5l7 0M6 8v8M18 8v8",
   "keamanan-staf": "M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z",
+  // galeri-konglo: grid of cards (gallery).
+  "galeri-konglo": "M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z",
   "data-studio": "M3 5h18v14H3zM3 10h18M9 5v14",
   asisten:
     "M11 3l1.6 4.4L17 9l-4.4 1.6L11 15l-1.6-4.4L5 9l4.4-1.6zM18 14l.8 2.2L21 17l-2.2.8L18 20l-.8-2.2L15 17l2.2-.8z",

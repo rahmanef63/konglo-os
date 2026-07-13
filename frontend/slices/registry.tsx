@@ -43,6 +43,7 @@ export const SCREENS: Record<string, ComponentType> = {
   kesehatan: lazy(() => import("./kesehatan/screen")),
   filantropi: lazy(() => import("./filantropi/screen")),
   "relasi-jaringan": lazy(() => import("./relasi-jaringan/screen")),
+  "galeri-konglo": lazy(() => import("./galeri-konglo/screen")),
   "keamanan-staf": lazy(() => import("./keamanan-staf/screen")),
   "data-studio": lazy(() => import("./data-studio/screen")),
   pengaturan: lazy(() => import("./pengaturan/screen")),

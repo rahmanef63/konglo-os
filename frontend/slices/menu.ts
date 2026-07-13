@@ -22,6 +22,9 @@ export const MENU: FeatureMeta[] = [
   { slug: "kesehatan", label: "Kesehatan", tag: "Vitalitas", sub: "Medis, kebugaran & asuransi", accent: "var(--color-mk-green)", group: "Pribadi" },
   { slug: "hiburan-gaya-hidup", label: "Gaya Hidup", tag: "Pribadi", sub: "Koleksi, perjalanan & pengalaman", accent: "var(--color-mk-orange)", group: "Pribadi" },
   { slug: "relasi-jaringan", label: "Relasi & Jaringan", tag: "Koneksi", sub: "Kontak VIP, mitra & jaringan", accent: "var(--color-mk-purple)", group: "Operasi & Relasi" },
+  // Galeri Konglo — PUBLIC-data directory (static snapshot, no Convex), open to
+  // every role incl. demo. The market-research showcase; graph view planned.
+  { slug: "galeri-konglo", label: "Galeri Konglo", tag: "Riset", sub: "Direktori konglomerat Indonesia — data publik", accent: "var(--color-mk-cyan)", group: "Operasi & Relasi" },
   { slug: "keamanan-staf", label: "Keamanan & Staf", tag: "Operasi", sub: "Tim, akses & keamanan aset", accent: "var(--color-mk-red)", group: "Operasi & Relasi" },
   { slug: "data-studio", label: "Studio Data", tag: "Data", sub: "Kelola seluruh basis data — tabel ala Notion", accent: "var(--color-mk-blue)", group: "Sistem" },
   // AI assistant — the mobile dock's center action; also listed here under Sistem.
